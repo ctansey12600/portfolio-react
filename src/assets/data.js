@@ -1,91 +1,95 @@
-import Home from "../Main/Home/Home";
-import About from "../Main/About/About";
-import Portfolio from "../Main/Portfolio/Portfolio";
-import Resume from "../Main/Resume/Resume";
-import Blog from "../Main/Blog/Blog";
-import Contact from "../Main/Contact/Contact";
-import Websites from "../Main/Portfolio/Websites/Websites";
-import Graphics from "../Main/Portfolio/Graphics/Graphics";
-import WebsiteProject from "../Main/Portfolio/Websites/WebsiteProject";
-import GraphicProject from "../Main/Portfolio/Graphics/GraphicProject";
+import HomePage from "../components/pages/HomePage";
+import AboutPage from "../components/pages/AboutPage";
+import PortfolioPage from "../components/pages/portfolio/PortfolioPage";
+import ResumePage from "../components/pages/ResumePage";
+import BlogPage from "../components/pages/BlogPage";
+import ContactPage from "../components/pages/ContactPage";
+import WebDevPage from "../components/pages/portfolio/WebDevPage";
+import GraphicDesignPage from "../components/pages/portfolio/GraphicDesignPage";
+import WProjectPage from "../components/pages/portfolio/WProjectPage";
+import GProjectPage from "../components/pages/portfolio/GProjectPage";
 
 const routes = [
-  { path: "/", name: "Home", Component: Home, pages: [] },
-  { path: "/about", name: "About", Component: About, pages: [] },
+  { path: "/", name: "Home", Component: HomePage, pages: [] },
+  { path: "/about", name: "About", Component: AboutPage, pages: [] },
   {
     path: "/portfolio",
     name: "Portfolio",
-    Component: Portfolio,
+    Component: PortfolioPage,
     pages: [
       {
         path: "/websites",
         name: "Website Design",
-        Component: Websites,
-        pages: [{ path: "/project", Component: WebsiteProject }],
+        Component: WebDevPage,
+        pages: [{ path: "/project", Component: WProjectPage }],
       },
       {
         path: "/graphics",
         name: "Graphic Design",
-        Component: Graphics,
+        Component: GraphicDesignPage,
         pages: [
           {
             path: "/project",
-            Component: GraphicProject,
+            Component: GProjectPage,
           },
         ],
       },
     ],
   },
-  { path: "/resume", name: "Resume", Component: Resume, pages: [] },
-  { path: "/blog", name: "Blog", Component: Blog, pages: [] },
-  { path: "/contact", name: "Contact", Component: Contact, pages: [] },
+  { path: "/resume", name: "Resume", Component: ResumePage, pages: [] },
+  { path: "/blog", name: "Blog", Component: BlogPage, pages: [] },
+  { path: "/contact", name: "Contact", Component: ContactPage, pages: [] },
 ];
 
 const footerRoutes = [
   {
     path: "/",
     name: "Casey Tansey",
-    Component: Home,
+    Component: HomePage,
     pages: [
-      { path: "/about", name: "About Me", Component: About },
-      { path: "/resume", name: "Resume", Component: Resume },
-      { path: "/blog", name: "Blog", Component: Blog },
+      { path: "/about", name: "About Me", Component: AboutPage },
+      { path: "/resume", name: "Resume", Component: ResumePage },
+      { path: "/blog", name: "Blog", Component: BlogPage },
     ],
   },
   {
     path: "/portfolio/websites",
     name: "Website Portfolio",
-    Component: Websites,
+    Component: WebDevPage,
     pages: [
       {
         path: "/portfolio/websites/project/1",
         name: "Most Recent",
-        Component: WebsiteProject,
+        Component: WProjectPage,
       },
       {
         path: "/portfolio/websites/project/1",
         name: "My Favorite",
-        Component: WebsiteProject,
+        Component: WProjectPage,
       },
-      { path: "/portfolio/websites", name: "All", Component: Websites },
+      { path: "/portfolio/websites", name: "All", Component: WebDevPage },
     ],
   },
   {
     path: "/portfolio/graphics",
     name: "Graphic Portfolio",
-    Component: Graphics,
+    Component: GraphicDesignPage,
     pages: [
       {
         path: "/portfolio/graphics/project/1",
         name: "Most Recent",
-        Component: GraphicProject,
+        Component: GProjectPage,
       },
       {
         path: "/portfolio/graphics/project/1",
         name: "My Favorite",
-        Component: GraphicProject,
+        Component: GProjectPage,
       },
-      { path: "/portfolio/graphics", name: "All", Component: Graphics },
+      {
+        path: "/portfolio/graphics",
+        name: "All",
+        Component: GraphicDesignPage,
+      },
     ],
   },
 ];
