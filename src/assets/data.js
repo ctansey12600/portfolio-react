@@ -20,12 +20,14 @@ const routes = [
       {
         path: "/websites",
         name: "Website Design",
+        shortName: "Websites",
         Component: WebDevPage,
         pages: [{ path: "/project", Component: WProjectPage }],
       },
       {
         path: "/graphics",
         name: "Graphic Design",
+        shortName: "Graphics",
         Component: GraphicDesignPage,
         pages: [
           {

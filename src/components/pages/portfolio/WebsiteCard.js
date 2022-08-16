@@ -1,9 +1,24 @@
 import React from "react";
+import styled from "styled-components";
 import { Link } from "react-router-dom";
+
+const WebCard = styled.div`
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px;
+  gap: 10px;
+  position: absolute;
+  width: 1195px;
+  height: 250px;
+  left: 20px;
+  top: 520px;
+`;
 
 function WebsiteCard({ websiteID }) {
   return (
-    <div className="website-card">
+    <WebCard>
       <div className="website-card-preview">
         <img
           src={websiteID.previewPhoto}
@@ -28,7 +43,7 @@ function WebsiteCard({ websiteID }) {
       <div className="website-card-link">
         <Link to={`/portfolio/websites/${websiteID.id}`}>Click for More</Link>
       </div>
-    </div>
+    </WebCard>
   );
 }
 

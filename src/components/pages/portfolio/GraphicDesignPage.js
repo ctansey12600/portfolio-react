@@ -1,6 +1,14 @@
 import React, { useContext } from "react";
+import styled from "styled-components";
 import GraphicCard from "./GraphicCard";
 import { GraphicContext } from "../../context/graphics";
+
+const GraphicSection = styled.ul`
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 10px;
+  grid-auto-rows: minmax(100px, auto);
+`;
 
 function GraphicDesignPage() {
   const graphicData = useContext(GraphicContext);
@@ -13,11 +21,7 @@ function GraphicDesignPage() {
     </li>
   ));
 
-  return (
-    <section className="graphics">
-      <ul>{renderGraphic}</ul>
-    </section>
-  );
+  return <GraphicSection>{renderGraphic}</GraphicSection>;
 }
 
 export default GraphicDesignPage;

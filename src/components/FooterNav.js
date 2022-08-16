@@ -1,26 +1,66 @@
 import React from "react";
+import styled from "styled-components";
 import { Link } from "react-router-dom";
 import { footerRoutes } from "../assets/data";
 
+const Wrapper = styled.div`
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  padding: 0px;
+  flex: none;
+  flex-grow: 1;
+`;
+const List = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 0px;
+  gap: 8px;
+  flex: none;
+  align-self: stretch;
+  flex-grow: 1;
+`;
+const Title = styled.h4`
+  font-family: "Playfair Display";
+  font-style: normal;
+  font-weight: 600;
+  font-size: 30px;
+  line-height: 38px;
+  color: ${(props) => props.theme.infoTitle};
+  flex: none;
+  flex-grow: 0;
+`;
+const Body = styled.h4`
+  font-family: "Martel";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 24px;
+  line-height: 32px;
+  color: var(--green);
+  flex: none;
+  flex-grow: 0;
+`;
+
 function FooterNav() {
   const footerNavCollection = footerRoutes.map((titleRoute) => (
-    <div key={titleRoute.name} className="single-listed-main-nav">
-      <Link className="main-nav-title" to={titleRoute.path}>
+    <List key={titleRoute.name}>
+      <Title as={Link} to={titleRoute.path}>
         {titleRoute.name}
-      </Link>
+      </Title>
       <ul>
         {titleRoute.pages.map((listedRoute) => (
-          <li className="main-nav-list" key={listedRoute.name}>
-            <Link className="main-nav-listed" to={listedRoute.path}>
+          <li key={listedRoute.name}>
+            <Body as={Link} to={listedRoute.path}>
               {listedRoute.name}
-            </Link>
+            </Body>
           </li>
         ))}
       </ul>
-    </div>
+    </List>
   ));
 
-  return <div className="listed-main-nav">{footerNavCollection}</div>;
+  return <Wrapper>{footerNavCollection}</Wrapper>;
 }
 
 export default FooterNav;

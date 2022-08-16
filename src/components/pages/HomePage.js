@@ -1,11 +1,72 @@
 import React from "react";
+import styled from "styled-components";
 import { Link } from "react-router-dom";
 import logo from "../../assets/Home-img.png";
 
+const Home = styled.div`
+  display: flex;
+  width: 100%;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  padding: 40px 15px;
+  flex: none;
+  flex-grow: 0;
+`;
+
+const WebRoute = styled.div`
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  padding: 0px;
+  gap: 30px;
+  flex: none;
+  order: 0;
+  flex-grow: 0;
+  font-family: "Playfair Display";
+  font-style: normal;
+  font-weight: 900;
+  font-size: 60px;
+  line-height: 68px;
+  color: ${(props) => props.theme.infoTitle};
+  &:hover {
+    color: ${(props) => props.theme.infoBody};
+  }
+`;
+
+const GraphicRoute = styled.div`
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+  align-items: center;
+  padding: 0px;
+  gap: 30px;
+  flex: none;
+  order: 2;
+  flex-grow: 0;
+  font-family: "Playfair Display";
+  font-style: normal;
+  font-weight: 900;
+  font-size: 60px;
+  line-height: 68px;
+  color: ${(props) => props.theme.infoTitle};
+  &:hover {
+    color: ${(props) => props.theme.infoBody};
+  }
+`;
+
+const Logo = styled.img`
+  width: 548px;
+  height: 586px;
+  flex: none;
+  order: 1;
+  flex-grow: 0;
+`;
+
 function HomePage() {
   return (
-    <section className="home-page">
-      <Link className="home-link-web" to="/portfolio/websites">
+    <Home>
+      <WebRoute as={Link} to="/portfolio/websites">
         {" "}
         <svg
           width="58"
@@ -19,11 +80,15 @@ function HomePage() {
             fill="#FB9C4C"
           />
         </svg>
-        WEBSITE DEVELOPER
-      </Link>
-      <img className="home-img" src={logo} alt="illustrated logo of Casey" />
-      <Link className="home-link-graphic" to="/portfolio/graphics">
-        GRAPHIC DESIGNER{" "}
+        WEBSITE
+        <br />
+        DEVELOPER
+      </WebRoute>
+      <Logo src={logo} alt="illustrated logo of Casey" />
+      <GraphicRoute as={Link} to="/portfolio/graphics">
+        GRAPHIC
+        <br />
+        DESIGNER{" "}
         <svg
           width="58"
           height="90"
@@ -36,8 +101,8 @@ function HomePage() {
             fill="#FB9C4C"
           />
         </svg>
-      </Link>
-    </section>
+      </GraphicRoute>
+    </Home>
   );
 }
 
