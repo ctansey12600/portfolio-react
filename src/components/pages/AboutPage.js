@@ -1,6 +1,6 @@
 import React from "react";
 import styled from "styled-components";
-import portrit from "../../assets/about-img.png";
+import portrait from "../../assets/about-img.png";
 import nature from "../../assets/AboutImg-1-400.jpg";
 import travel from "../../assets/AboutImg-2-600-400.jpg";
 import pottery from "../../assets/AboutImg-3-600-400.jpg";
@@ -218,7 +218,7 @@ function AboutPage() {
       <Title>ABOUT ME</Title>
       <Info>
         <InfoImg>
-          <img src={portrit} alt="Portrit of Casey" width="100%" />
+          <img src={portrait} alt="Portrait of Casey" width="100%" />
         </InfoImg>
         <InfoContact>
           <h2>Contact Info</h2>
@@ -246,7 +246,7 @@ function AboutPage() {
             <p>
               “Be one with nature,” as cheesy as that sounds. I think nature
               provides the essential ingredients to life. It gives me time to
-              slow down and have graditude for the world around me.
+              slow down and have gratitude for the world around me.
             </p>
           </div>
           <img src={nature} alt="Casey on top of mountain" />
@@ -257,8 +257,8 @@ function AboutPage() {
             <h3>When I can, I love to...</h3>
             <p>
               Travel and explore different parts of the country and world. When
-              traveling far might not be an option, discovering new opporunities
-              in my surrounding area is always a good alternative.
+              traveling far might not be an option, discovering new
+              opportunities in my surrounding area is always a good alternative.
             </p>
           </div>
         </Hobby>
