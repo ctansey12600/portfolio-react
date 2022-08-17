@@ -28,6 +28,11 @@ const HeaderSection = styled.section`
     flex-grow: 0;
     z-index: 1;
   }
+  &:hover {
+    path {
+      fill: var(--green);
+    }
+  }
 `;
 
 const InfoSection = styled.section`

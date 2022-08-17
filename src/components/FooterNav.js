@@ -31,6 +31,9 @@ const Title = styled.h4`
   color: ${(props) => props.theme.infoTitle};
   flex: none;
   flex-grow: 0;
+  &:hover {
+    color: var(--green);
+  }
 `;
 const Body = styled.h4`
   font-family: "Martel";
@@ -41,6 +44,9 @@ const Body = styled.h4`
   color: var(--green);
   flex: none;
   flex-grow: 0;
+  &:hover {
+    color: ${(props) => props.theme.infoTitle};
+  }
 `;
 
 function FooterNav() {

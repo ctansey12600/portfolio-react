@@ -1,6 +1,7 @@
 //DONE - Needs CSS
 import React from "react";
 import { Switch, Route } from "react-router-dom";
+import ScrollToTop from "./shared/ScrollToTop.";
 import HomePage from "./pages/HomePage";
 import AboutPage from "./pages/AboutPage";
 import PortfolioPage from "./pages/portfolio/PortfolioPage";
@@ -10,7 +11,7 @@ import ContactPage from "./pages/ContactPage";
 
 function PageRouting() {
   return (
-    <main>
+    <ScrollToTop>
       <Switch>
         <Route exact path="/">
           <HomePage />
@@ -34,7 +35,7 @@ function PageRouting() {
           <h1>404 not found</h1>
         </Route>
       </Switch>
-    </main>
+    </ScrollToTop>
   );
 }
 

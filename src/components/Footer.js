@@ -47,6 +47,9 @@ const Button = styled.button`
   font-size: 24px;
   line-height: 32px;
   color: ${(props) => props.theme.infoBody};
+  &:hover {
+    background: var(--green);
+  }
   path {
     fill: ${(props) => props.theme.infoBody};
     stroke: ${(props) => props.theme.infoBody};

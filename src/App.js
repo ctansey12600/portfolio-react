@@ -86,7 +86,9 @@ function App() {
         <Header isDarkMode={isDarkMode} onToggleDarkMode={onToggleDarkMode} />
         <GraphicProvider>
           <WebsiteProvider>
-            <PageRouting />
+            <main>
+              <PageRouting />
+            </main>
           </WebsiteProvider>
         </GraphicProvider>
         <Footer />

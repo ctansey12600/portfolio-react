@@ -90,9 +90,6 @@ const BlogInfoRight = styled.div`
   order: 1;
   align-self: stretch;
   flex-grow: 1;
-  path {
-    fill: ${(props) => props.theme.color};
-  }
 `;
 
 const BlogLink = styled.a`
@@ -109,6 +106,15 @@ const BlogLink = styled.a`
   flex: none;
   order: 0;
   flex-grow: 0;
+  path {
+    fill: ${(props) => props.theme.color};
+  }
+  &:hover {
+    color: ${(props) => props.theme.color};
+    path {
+      fill: ${(props) => props.theme.backgroundColor};
+    }
+  }
 `;
 
 function BlogCard({ data }) {

@@ -95,6 +95,12 @@ const Card = styled.div`
       order: 0;
       flex-grow: 0;
     }
+    &:hover {
+      background: ${(props) => props.theme.backgroundColor};
+      a {
+        color: ${(props) => props.theme.color};
+      }
+    }
   }
 `;
 

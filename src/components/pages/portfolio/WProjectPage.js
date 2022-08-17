@@ -69,8 +69,6 @@ function WProjectPage() {
               </MoreInfoTop>
               <MoreInfoBtm>
                 <h4>
-                  Links:
-                  <br />
                   Website: {renderWebProject.url}
                   <br />
                   Github: {renderWebProject.github}
