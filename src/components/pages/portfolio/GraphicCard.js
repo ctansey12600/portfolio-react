@@ -101,7 +101,7 @@ const Card = styled.div`
 function GraphicCard({ graphicID }) {
   return (
     <Card>
-      <img src={graphicID.src} alt="preview of graphic" />
+      <img src={graphicID.projectPreview} alt="preview of graphic" />
       <div>
         <h2 className="regular-text">{graphicID.name}</h2>
         <p>

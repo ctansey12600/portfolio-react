@@ -1,9 +1,35 @@
+//Needs Styling
 //Needs to shuffle through development photos
 import React, { useContext } from "react";
+import styled from "styled-components";
 import { useParams } from "react-router-dom";
 import { GraphicContext } from "../../context/graphics";
-// import PhotoCarousel from "../../../Elements/PhotoCarousel";
+import {
+  HeaderSection,
+  InfoSection,
+  BasicInfo,
+  ProjectImg,
+  InfoCard,
+  MoreInfo,
+  MoreInfoTop,
+  MoreInfoBtm,
+  Purpose,
+  Process,
+} from "../../shared/ProjectStyles";
+import MyGallery from "../../shared/MyGallery";
 import BackButton from "../../shared/BackButton";
+
+const GraphicProject = styled.div`
+  display: flex;
+  width: 100%;
+  flex-direction: column;
+  align-items: center;
+  padding: 0px 0px 80px;
+  gap: 24px;
+  flex: none;
+  align-self: stretch;
+  flex-grow: 0;
+`;
 
 function GProjectPage() {
   const graphicData = useContext(GraphicContext);
@@ -20,60 +46,45 @@ function GProjectPage() {
     return <h2 className="display-text">Loading...</h2>;
 
   return (
-    <div className="graphic-project-page">
-      <section className="page-header">
+    <GraphicProject>
+      <HeaderSection>
         <BackButton routingData="/graphics" />
-        <h1 className="display-text">{renderGraphicProject.name}</h1>
-      </section>
-      <section className="info-section">
-        <div className="basic-info">
-          <div className="project-image">
+        <h1>{renderGraphicProject.name}</h1>
+      </HeaderSection>
+      <InfoSection>
+        <BasicInfo>
+          <ProjectImg>
             <img src={renderGraphicProject.src} alt="screenshot of graphic" />
-          </div>
-          <div className="info-card">
-            <div className="info-card-text">
-              <div className="info-card-text-top">
-                <h2 className="regular-text">MORE INFO</h2>
+          </ProjectImg>
+          <InfoCard>
+            <MoreInfo>
+              <MoreInfoTop>
+                <h2>MORE INFO</h2>
                 <hr />
-                <h4 className="regular-text">
-                  Purpose: {renderGraphicProject.purpose}
-                </h4>
-              </div>
-              <div className="info-card-text-btm">
-                <h4 className="regular-text">
-                  <br />
+              </MoreInfoTop>
+              <MoreInfoBtm>
+                <h4>
                   Year Made: {renderGraphicProject.yearMade}
                   <br />
-                  Programs Used: {renderGraphicProject.programs}
+                  Programs Used: {renderGraphicProject.application}
                 </h4>
-              </div>
-            </div>
+              </MoreInfoBtm>
+            </MoreInfo>
+          </InfoCard>
+        </BasicInfo>
+        <Purpose>
+          <div>
+            <h2>THE PURPOSE</h2>
+            <hr />
+            <h4>{renderGraphicProject.purpose}</h4>
           </div>
-        </div>
-        <div className="extra-info">
-          <div className="purpose-info">
-            <div className="purpose-info-frame">
-              <div className="purpose-info-text">
-                <hr />
-                <h2 className="regular-text">
-                  DOCUMENTING
-                  <br />
-                  THE PROGRESS
-                </h2>
-                <hr />
-              </div>
-            </div>
-          </div>
-          <div className="process-info">
-            <div className="process-photo-shuffle">
-              {/* <PhotoCarousel
-                photoData={renderGraphicProject.developmentPhotos}
-              /> */}
-            </div>
-          </div>
-        </div>
-      </section>
-    </div>
+        </Purpose>
+        <Process>
+          <h2>DOCUMENTING THE PROGRESS</h2>
+          <MyGallery photoData={renderGraphicProject.developmentPhotos} />
+        </Process>
+      </InfoSection>
+    </GraphicProject>
   );
 }
 

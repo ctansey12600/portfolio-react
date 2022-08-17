@@ -51,6 +51,10 @@ const Button = styled.button`
     border-bottom: 1px solid ${(props) => props.theme.info};
     color: ${(props) => props.theme.primary};
   }
+  &.active {
+    background: ${(props) => props.theme.secondary};
+    color: ${(props) => props.theme.primary};
+  }
 `;
 
 function Header({ isDarkMode, onToggleDarkMode }) {

@@ -60,12 +60,12 @@ const footerRoutes = [
     Component: WebDevPage,
     pages: [
       {
-        path: "/portfolio/websites/project/1",
+        path: "/portfolio/websites/2",
         name: "Most Recent",
         Component: WProjectPage,
       },
       {
-        path: "/portfolio/websites/project/1",
+        path: "/portfolio/websites/2",
         name: "My Favorite",
         Component: WProjectPage,
       },
@@ -78,12 +78,12 @@ const footerRoutes = [
     Component: GraphicDesignPage,
     pages: [
       {
-        path: "/portfolio/graphics/project/1",
+        path: "/portfolio/graphics/1",
         name: "Most Recent",
         Component: GProjectPage,
       },
       {
-        path: "/portfolio/graphics/project/1",
+        path: "/portfolio/graphics/7",
         name: "My Favorite",
         Component: GProjectPage,
       },
