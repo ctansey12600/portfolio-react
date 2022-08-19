@@ -6,8 +6,6 @@ The purpose of developing this website was to show attributions of myself throug
 
 ![HomePageGif](https://media.giphy.com/media/wI9dnwZUKivnoHERP2/giphy.gif)
 
----
-
 **To open this repository:**
 
 1. Fork and clone
@@ -27,15 +25,11 @@ When opening the application, the page is first directed to the home page which 
 
 ![isDarkModeGif](https://media.giphy.com/media/a9OKDLySgUSlWNk362/giphy.gif)
 
----
-
 ## About Page
 
 After navigating to the about page, there is a photo of myself, along with my contact information. Also within this page, there is information about what I am currently passionate about or pursuing. Hobbies I love and enjoy are then listed right under my passion with an image and a description to match.
 
 ![AboutPageGif](https://media.giphy.com/media/i86JoAEpo3hfBhmRZp/giphy.gif)
-
----
 
 ## Portfolio Page
 
@@ -51,9 +45,7 @@ The website development page holds a portfolio of past website development proje
 
 ![WebDevPageGif](https://media.giphy.com/media/rzUJiH5xy50oneu7SG/giphy.gif)
 
-#### Project Page
-
----
+#### Project Page:
 
 After clicking for more information about a website project, more information will load about the project that includes a image gallery that is used from the library [React Image Gallery][1]. For each project, a selection of images are featured that show the final project in production, or other samples that were created. The date the application was created, links to website and github, and the programs used to create the project are also featured. Finally, the purpose of the project demonstrate why the application was created, and what the application is meant to accomplish.
 
@@ -67,15 +59,11 @@ The graphic design page holds a portfolio of past graphic design projects that I
 
 ![GraphicDesignPageGif](https://media.giphy.com/media/WAepnimpfckcgufzc3/giphy.gif)
 
-#### Project Page
-
----
+#### Project Page:
 
 After clicking for more information about a graphic project, more information will load about the project that includes a image gallery that is used from the library [React Image Gallery][1]. For each project, a selection of images are featured that show the final project in production, or other samples that were created. The date the graphic was created and the programs used to create the project are also featured. Finally, the purpose of the project demonstrate why the graphic was created, and what the graphic is meant to accomplish.
 
 ![GProjectPageGif](https://media.giphy.com/media/p5GQqrsE8hftwS43lS/giphy.gif)
-
----
 
 ## Resume Page
 
@@ -83,15 +71,11 @@ The resume page includes a pdf copy of my resume that is located in an `iframe` 
 
 ![ResumePageGif](https://media.giphy.com/media/wWgAZEzbfuBCHQ3fiz/giphy.gif)
 
----
-
 ## Blog Page
 
 The blog page includes a card for each blog post that I was add to my [Medium][2] account. Each blog post references a project that was completed throughout each phase through Flatiron. Within each of these posts, there is a useful guide to follow apply programming that I found useful within the each of the corresponding phases.
 
 ![BlogPageGif](https://media.giphy.com/media/wl3KvdXlqOarldg4Kz/giphy.gif)
-
----
 
 ## Contact Page
 
@@ -99,10 +83,6 @@ The contact page includes my contact information once again, along with a form t
 
 ![ContactPageGif](https://media.giphy.com/media/VDeADQQHSYoNAwEbzF/giphy.gif)
 
----
-
 [0]: https://styled-components.com/
 [1]: https://www.npmjs.com/package/react-image-gallery
 [2]: https://medium.com/@ctansey12600
-
----
