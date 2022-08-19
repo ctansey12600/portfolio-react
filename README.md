@@ -1,70 +1,62 @@
-# Getting Started with Create React App
+# Casey Tansey Portfolio
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+==========================
 
-## Available Scripts
+This project was created with the intention of being used as my Phase 2 Project in the Software Engineering Program at Flatiron. With guidelines to demonstrate knowledge of Javascript, React, and HTML/CSS to be able to create a single-page application. Within the application, <json-sever> had to be used to create a RESTful API. With the guidelines set, I decided to make an application to use as my portfolio to demonstrate my work in both Website Development and Graphic Design.
 
-In the project directory, you can run:
+The purpose of developing this website was to show attributions of myself through design. This fits in terms of color scheme, typography, and overall layout and aesthetic. When creating the design of the application, Procreate and Canva were used to come up with rough blueprints of designs that would fit my "character." Figma was the used to create the first "official," and eventually final UI layout of the design. When implementing the design, [styled-components][0] was used with react to make styling have a simplest flow.
 
-### `npm start`
+To open this repository:
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+1. Fork and clone
+2. <npm install>
+3. <json-server --watch db.json>
+4. <npm start>
+5. Navigate to Application
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+## Home Page
 
-### `npm test`
+When opening the application, the page is first direct to to the home page which shows a logo I created depicting a sketch of myself. There is also options to navigate to the different pages within the app through the navigation bar in the header, or listed content within the footer. Within the home page, there are also options to click to quickly go see a portfolio of my website development or graphic design. Finally, there is an option for light or dark mode which changes the color scheme of the whole application.
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+---
 
-### `npm run build`
+## About Page
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+After navigating to the about page, there is a photo of myself, along with my contact information. Also within this page, there is information about what I am currently passionate about, or pursuing. Hobbies I love and enjoy are then listed right under my passion with an image and a description to match.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+---
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+## Portfolio Page
 
-### `npm run eject`
+When portfolio is clicked within the navigation bar, it will direct to a portfolio selection page that features another logo (sketch of myself) with two buttons to choose between visiting the website or graphic portfolio. After one is selected, the corresponding page renders with a portfolio of different projects with a navigation feature at the top to switch between the website or graphic portfolio.
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+### **Website Development**
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+The website development page holds a portfolio of past website development projects that I have developed. Each project features its own card that holds information of the project including when the website was developed, application used, and a link to the website itself. There is also a link to more information about the project along with a sample image from application.
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+#### Project Page
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+After clicking for more information about a website project, more information will load about the project that includes a image gallery that is used from the library [React Image Gallery][1]. For each project, a selection of images are featured that show the final project in production, or other samples that were created. The date the application was created, links to website and github, and the programs used to create the project are featured. Finally, the purpose of the project demonstrate why the application was created, and what the application is meant to accomplish.
 
-## Learn More
+### **Graphic Design**
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+The graphic design page holds a portfolio of past graphic design projects that I have created. Each project features its own card that holds information of the project including when the graphic was developed and application used. There is also a button, that when clicked, directs to more information about the project.
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+#### Project Page
 
-### Code Splitting
+After clicking for more information about a graphic project, more information will load about the project that includes a image gallery that is used from the library [React Image Gallery][1]. For each project, a selection of images are featured that show the final project in production, or other samples that were created. The date the graphic was created and the programs used to create the project are featured. Finally, the purpose of the project demonstrate why the graphic was created, and what the graphic is meant to accomplish.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+---
 
-### Analyzing the Bundle Size
+## Resume Page
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+The resume page includes a pdf copy of my resume that is located in an <iframe> HTML tag. This allows for viewers to download, print, or send the resume from the website itself.
 
-### Making a Progressive Web App
+---
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+## Blog Page
 
-### Advanced Configuration
+## Contact Page
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+[0]: https://styled-components.com/
+[1]: https://www.npmjs.com/package/react-image-gallery
