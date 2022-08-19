@@ -1,8 +1,6 @@
 # Casey Tansey Portfolio
 
-==========================
-
-This project was created with the intention of being used as my Phase 2 Project in the Software Engineering Program at Flatiron. With guidelines to demonstrate knowledge of Javascript, React, and HTML/CSS to be able to create a single-page application. Within the application, <json-sever> had to be used to create a RESTful API. With the guidelines set, I decided to make an application to use as my portfolio to demonstrate my work in both Website Development and Graphic Design.
+This project was created with the intention of being used as my Phase 2 Project in the Software Engineering Program at Flatiron. With guidelines to demonstrate knowledge of Javascript, React, and HTML/CSS to be able to create a single-page application. Within the application, `<json-sever>` had to be used to create a RESTful API. With the guidelines set, I decided to make an application to use as my portfolio to demonstrate my work in both Website Development and Graphic Design.
 
 The purpose of developing this website was to show attributions of myself through design. This fits in terms of color scheme, typography, and overall layout and aesthetic. When creating the design of the application, Procreate and Canva were used to come up with rough blueprints of designs that would fit my "character." Figma was the used to create the first "official," and eventually final UI layout of the design. When implementing the design, [styled-components][0] was used with react to make styling have a simplest flow.
 
@@ -11,9 +9,9 @@ The purpose of developing this website was to show attributions of myself throug
 To open this repository:
 
 1. Fork and clone
-2. <npm install>
-3. <json-server --watch db.json>
-4. <npm start>
+2. `<npm install>`
+3. `<json-server --watch db.json>`
+4. `<npm start>`
 5. Navigate to Application
 
 ## Home Page
