@@ -8,7 +8,7 @@ The purpose of developing this website was to show attributions of myself throug
 
 ---
 
-To open this repository:
+**To open this repository:**
 
 1. Fork and clone
 2. Input into terminal
