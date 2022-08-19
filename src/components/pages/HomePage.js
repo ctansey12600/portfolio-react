@@ -7,9 +7,9 @@ const Home = styled.div`
   display: flex;
   width: 100%;
   flex-direction: row;
-  justify-content: space-between;
+  justify-content: center;
   align-items: center;
-  padding: 40px 15px;
+  padding: 40px;
   flex: none;
   flex-grow: 0;
 `;
@@ -29,8 +29,14 @@ const WebRoute = styled.div`
   font-size: 60px;
   line-height: 68px;
   color: ${(props) => props.theme.infoTitle};
+  path {
+    fill: ${(props) => props.theme.color};
+  }
   &:hover {
     color: ${(props) => props.theme.infoBody};
+    path {
+      fill: var(--green);
+    }
   }
 `;
 
@@ -50,8 +56,14 @@ const GraphicRoute = styled.div`
   font-size: 60px;
   line-height: 68px;
   color: ${(props) => props.theme.infoTitle};
+  path {
+    fill: ${(props) => props.theme.color};
+  }
   &:hover {
     color: ${(props) => props.theme.infoBody};
+    path {
+      fill: var(--green);
+    }
   }
 `;
 
@@ -75,10 +87,7 @@ function HomePage() {
           fill="none"
           xmlns="http://www.w3.org/2000/svg"
         >
-          <path
-            d="M45.0825 87.2783C48.2047 90.0002 52.9424 89.6757 55.6643 86.5535C58.3863 83.4313 58.0618 78.6936 54.9395 75.9717L45.0825 87.2783ZM8 45L3.07149 39.3467C1.4377 40.771 0.5 42.8325 0.5 45C0.5 47.1675 1.4377 49.229 3.07149 50.6533L8 45ZM54.9395 14.0283C58.0618 11.3064 58.3863 6.56871 55.6643 3.44649C52.9424 0.324257 48.2047 -0.000238419 45.0825 2.7217L54.9395 14.0283ZM54.9395 75.9717L12.9285 39.3467L3.07149 50.6533L45.0825 87.2783L54.9395 75.9717ZM12.9285 50.6533L54.9395 14.0283L45.0825 2.7217L3.07149 39.3467L12.9285 50.6533Z"
-            fill="#FB9C4C"
-          />
+          <path d="M45.0825 87.2783C48.2047 90.0002 52.9424 89.6757 55.6643 86.5535C58.3863 83.4313 58.0618 78.6936 54.9395 75.9717L45.0825 87.2783ZM8 45L3.07149 39.3467C1.4377 40.771 0.5 42.8325 0.5 45C0.5 47.1675 1.4377 49.229 3.07149 50.6533L8 45ZM54.9395 14.0283C58.0618 11.3064 58.3863 6.56871 55.6643 3.44649C52.9424 0.324257 48.2047 -0.000238419 45.0825 2.7217L54.9395 14.0283ZM54.9395 75.9717L12.9285 39.3467L3.07149 50.6533L45.0825 87.2783L54.9395 75.9717ZM12.9285 50.6533L54.9395 14.0283L45.0825 2.7217L3.07149 39.3467L12.9285 50.6533Z" />
         </svg>
         WEBSITE
         <br />
