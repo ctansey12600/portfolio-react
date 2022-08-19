@@ -1,7 +1,5 @@
 # Casey Tansey Portfolio
 
-========================
-
 This project was created with the intention of being used as my Phase 2 Project in the Software Engineering Program at Flatiron. The guidelines included creating single-page application to demonstrate knowledge of Javascript, React, and HTML/CSS. Within the application, `json-sever` had to be used to create a RESTful API. With the guidelines set, I decided to make an application to use as my portfolio to demonstrate my work in both Website Development and Graphic Design.
 
 The purpose of developing this website was to show attributions of myself through design. This fits in terms of color scheme, typography, and overall layout and aesthetic. When creating the design of the application, Procreate and Canva were used to come up with rough blueprints of designs that would fit my "character." Figma was the used to create the first "official" layout, and eventually the final UI layout of the design. When implementing the design, [styled-components][0] was used with react to implement a dynamic flow.
@@ -22,8 +20,6 @@ $ npm start
 ```
 
 3. Navigate to Application
-
----
 
 ## Home Page
 
