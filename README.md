@@ -31,8 +31,6 @@ When opening the application, the page is first directed to the home page which 
 
 ## About Page
 
----
-
 After navigating to the about page, there is a photo of myself, along with my contact information. Also within this page, there is information about what I am currently passionate about or pursuing. Hobbies I love and enjoy are then listed right under my passion with an image and a description to match.
 
 ![AboutPageGif](https://media.giphy.com/media/i86JoAEpo3hfBhmRZp/giphy.gif)
@@ -40,8 +38,6 @@ After navigating to the about page, there is a photo of myself, along with my co
 ---
 
 ## Portfolio Page
-
----
 
 When portfolio is clicked within the navigation bar, it will direct to a portfolio selection page that features another logo (sketch of myself) with two buttons to choose between visiting the website or graphic portfolio. After one is selected, the corresponding page renders with a portfolio of different projects with a navigation feature at the top to switch between the website or graphic portfolio.
 
