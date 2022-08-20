@@ -512,7 +512,7 @@
   "blogs": [
     {
       "id": 1,
-      "previewImg": "https://i.ibb.co/ypJQ4rJ/Screenshot-2022-08-19-at-9-59-08-PM.png",
+      "previewImg": "https://i.ibb.co/3MJtFng/Screenshot-2022-08-19-at-9-59-08-PM-1.png",
       "name": "Using Styled-Components",
       "date": "Aug. 19, 2022",
       "description": "While Phase 2 comes to a close, I found myself struggling with CSS rather than React or Javascript. One element that I knew I wanted in my…",
