@@ -512,11 +512,11 @@
   "blogs": [
     {
       "id": 1,
-      "previewImg": "https://i.ibb.co/9Nr3zzR/Blog-Img-2-250-250.png",
-      "name": "Creating My First Project",
-      "date": "Oct. 5, 2021",
-      "description": "Throughout my course at Flatiron school, I have come across challenges while learning, but I have been able to resolve each as they have…",
-      "url": "https://medium.com/@ctansey12600/creating-my-first-project-806b65bd934c"
+      "previewImg": "https://i.ibb.co/ypJQ4rJ/Screenshot-2022-08-19-at-9-59-08-PM.png",
+      "name": "Using Styled-Components to Alternate Colors",
+      "date": "Aug. 19, 2022",
+      "description": "While Phase 2 comes to a close, I found myself struggling with CSS rather than React or Javascript. One element that I knew I wanted in my project since the beginning was a page that would list my website projects, and then link to more information about a specific project…",
+      "url": "https://medium.com/@ctansey12600/using-styled-components-to-alternate-colors-9da69cbbbe09"
     },
     {
       "id": 2,
@@ -525,6 +525,14 @@
       "date": "Oct. 1, 2021",
       "description": "In life, sometimes it almost feels like we are all following this desired path of going to college, getting a “good” job, and then starting…",
       "url": "https://medium.com/@ctansey12600/doing-a-180-on-life-2f1ab824249e"
+    },
+    {
+      "id": 3,
+      "previewImg": "https://i.ibb.co/9Nr3zzR/Blog-Img-2-250-250.png",
+      "name": "Creating My First Project",
+      "date": "Oct. 5, 2021",
+      "description": "Throughout my course at Flatiron school, I have come across challenges while learning, but I have been able to resolve each as they have…",
+      "url": "https://medium.com/@ctansey12600/creating-my-first-project-806b65bd934c"
     }
   ],
   "questions": [
@@ -533,20 +541,6 @@
       "name": "example name",
       "email": "example email",
       "question": "example question"
-    },
-    {
-      "firstName": "Casey",
-      "lastName": "Casey",
-      "email": "ctansey12600@outlook.com",
-      "question": "how are you",
-      "id": 2
-    },
-    {
-      "firstName": "Casey",
-      "lastName": "Casey",
-      "email": "ctansey12600@outlook.com",
-      "question": "how are you",
-      "id": 3
     }
   ]
 }
