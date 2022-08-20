@@ -1,9 +1,9 @@
 import React from "react";
 import styled from "styled-components";
 import portrait from "../../assets/about-img.png";
-import nature from "../../assets/AboutImg-1-400.jpg";
+import pottery from "../../assets/AboutImg-1-400.jpg";
 import travel from "../../assets/AboutImg-2-600-400.jpg";
-import pottery from "../../assets/AboutImg-3-600-400.jpg";
+import nature from "../../assets/AboutImg-3-600-400.jpg";
 
 const About = styled.div`
   display: flex;
