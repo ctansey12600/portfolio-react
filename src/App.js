@@ -51,6 +51,7 @@ ul {
 `;
 
 const Container = styled.div`
+  width: 100%;
   min-height: 100vh;
 `;
 
@@ -74,10 +75,24 @@ const darkTheme = {
 
 function App() {
   const [isDarkMode, setIsDarkMode] = useState(false);
+  const [isInputValue, setIsInputValue] = useState(" ");
+  const [isCounterValue, setIsCounterValue] = useState(0);
 
-  const onToggleDarkMode = () => {
+  function onToggleDarkMode() {
     setIsDarkMode((isDarkMode) => !isDarkMode);
-  };
+  }
+
+  function onFormSubmit(e) {
+    e.preventDefault();
+    const valueLength = isInputValue.length - 1;
+    setIsCounterValue((isCounterValue) => isCounterValue + valueLength);
+    setIsInputValue(" ");
+  }
+
+  function handleOnChange(event) {
+    const value = event.target.value;
+    setIsInputValue(value);
+  }
 
   return (
     <ThemeProvider theme={isDarkMode ? darkTheme : lightTheme}>
@@ -87,6 +102,16 @@ function App() {
         <GraphicProvider>
           <WebsiteProvider>
             <main>
+              <form onSubmit={onFormSubmit}>
+                <input
+                  name="inputValue"
+                  type="text"
+                  value={isInputValue}
+                  onChange={handleOnChange}
+                ></input>
+                <button type="submit">Click Me!</button>
+                <p>{isCounterValue}</p>
+              </form>
               <PageRouting />
             </main>
           </WebsiteProvider>
