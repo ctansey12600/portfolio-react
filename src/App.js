@@ -75,7 +75,8 @@ const darkTheme = {
 
 function App() {
   const [isDarkMode, setIsDarkMode] = useState(false);
-  const [isInputValue, setIsInputValue] = useState(" ");
+  //Created two different state values, so that they can update independently
+  const [isInputValue, setIsInputValue] = useState("");
   const [isCounterValue, setIsCounterValue] = useState(0);
 
   function onToggleDarkMode() {
@@ -84,12 +85,18 @@ function App() {
 
   function onFormSubmit(e) {
     e.preventDefault();
-    const valueLength = isInputValue.length - 1;
+    //collect the length of the input value as a variable
+    const valueLength = isInputValue.length;
+    //Update the value of the counter by the value of the length of the input value
+    //Passing the value as a prop so that the internal state is update and the DOM reflects such
     setIsCounterValue((isCounterValue) => isCounterValue + valueLength);
-    setIsInputValue(" ");
+    //The Input value is set back to empty so that a new value can be added
+    setIsInputValue("");
   }
 
   function handleOnChange(event) {
+    //Changed this function so that only the input value is changed by the user typing, and that the counter
+    //will not be updated unless there is a submit only
     const value = event.target.value;
     setIsInputValue(value);
   }
