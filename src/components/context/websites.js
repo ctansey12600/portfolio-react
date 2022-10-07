@@ -8,7 +8,7 @@ function WebsiteProvider({ children }) {
   useEffect(() => {
     fetch("http://localhost:9292/portfolios/website")
       .then((r) => r.json())
-      .then((data) => setWebData(data));
+      .then((data) => setWebData(data[0]["projects"]));
   }, []);
 
   return (

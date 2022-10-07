@@ -1,4 +1,4 @@
-//Needs Styling
+//CONTAINS WEBSITE CONTEXT
 import React, { useContext } from "react";
 import styled from "styled-components";
 import WebsiteCard from "./WebsiteCard";
