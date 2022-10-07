@@ -1,5 +1,4 @@
-//Needs Styling
-//Needs to shuffle through development photos
+//CONTAINS WEBSITE CONTEXT
 import React, { useContext } from "react";
 import styled from "styled-components";
 import { useParams } from "react-router-dom";

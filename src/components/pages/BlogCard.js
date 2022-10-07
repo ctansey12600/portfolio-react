@@ -1,4 +1,4 @@
-//Needs Styling
+// BLOG COMPLETED FOR PROJECT 3
 import React from "react";
 import styled from "styled-components";
 
@@ -117,24 +117,24 @@ const BlogLink = styled.a`
   }
 `;
 
-function BlogCard({ data }) {
+function BlogCard({ value }) {
   return (
     <Card>
       <BlogImg>
-        <img src={data.previewImg} alt="preview img of blog" />
+        <img src={value.photos[0].thumbnail} alt={value.photos[0].alt} />
       </BlogImg>
       <BlogInfo>
         <BlogInfoLeft>
-          <h2>{data.name}</h2>
+          <h2>{value.name}</h2>
           <hr />
           <h4>
-            Published: {data.date}
+            Published: {value.date_made}
             <br />
-            Description: {data.description}
+            Description: {value.purpose}
           </h4>
         </BlogInfoLeft>
         <BlogInfoRight>
-          <BlogLink href={data.url}>
+          <BlogLink href={value.links[0].url}>
             Go to Post{" "}
             <svg
               width="58"
