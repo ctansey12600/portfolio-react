@@ -51,8 +51,8 @@ function WProjectPage() {
         <BasicInfo>
           <ProjectImg>
             <img
-              src={renderWebProject.projectPhoto}
-              alt="screenshot of website"
+              src={renderWebProject.photos[0].original}
+              alt={renderWebProject.photos[0].alt}
             />
           </ProjectImg>
           <InfoCard>
@@ -61,16 +61,16 @@ function WProjectPage() {
                 <h2>MORE INFO</h2>
                 <hr />
                 <h4>
-                  Year Made: {renderWebProject.yearMade}
+                  Year Made: {renderWebProject.date_made}
                   <br />
                   Programs Used: {renderWebProject.languages}
                 </h4>
               </MoreInfoTop>
               <MoreInfoBtm>
                 <h4>
-                  Website: {renderWebProject.url}
+                  Website: {renderWebProject.links[0].url}
                   <br />
-                  Github: {renderWebProject.github}
+                  Github: {renderWebProject.links[1].url}
                 </h4>
               </MoreInfoBtm>
             </MoreInfo>
@@ -85,7 +85,7 @@ function WProjectPage() {
         </Purpose>
         <Process>
           <h2>DOCUMENTING THE PROCESS</h2>
-          <MyGallery photoData={renderWebProject.developmentPhotos} />
+          <MyGallery photoData={renderWebProject.photos} />
         </Process>
       </InfoSection>
     </WebsiteProject>
