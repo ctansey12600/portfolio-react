@@ -120,26 +120,26 @@ const WebLink = styled.h3`
   }
 `;
 
-function WebsiteCard({ websiteID }) {
+function WebsiteCard({ value }) {
   return (
     <WebCard>
       <WebImg>
-        <img src={websiteID.previewPhoto} alt="preview img of project" />
+        <img src={value.photos[0].thumbnail} alt={value.photos[0].alt} />
       </WebImg>
       <WebInfo>
         <WebInfoLeft>
-          <h2>{websiteID.name}</h2>
+          <h2>{value.name}</h2>
           <hr />
           <h4>
-            Year Made: {websiteID.yearMade}
+            Year Made: {value.date_made}
             <br />
-            <a href={websiteID.url}>Click Here to Visit Now</a>
+            <a href={value.links[0].url}>Click Here to Visit Now</a>
             <br />
-            Programs Used: {websiteID.languages}
+            Programs Used: {value.languages}
           </h4>
         </WebInfoLeft>
         <WebInfoRight>
-          <WebLink as={Link} to={`/portfolio/websites/${websiteID.id}`}>
+          <WebLink as={Link} to={`/portfolio/websites/${value.id}`}>
             Click for More
             <svg
               width="58"

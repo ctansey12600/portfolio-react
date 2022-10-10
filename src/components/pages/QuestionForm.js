@@ -236,12 +236,17 @@ function QuestionForm() {
 
   function handleSubmit(event) {
     event.preventDefault();
-    fetch("http://localhost:3000/questions", {
+    fetch("http://localhost:9292/questions", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
       },
-      body: JSON.stringify(formData),
+      body: JSON.stringify({
+        first_name: formData.firstName,
+        last_name: formData.lastName,
+        email: formData.email,
+        question: formData.question,
+      }),
     });
     setFormData({
       firstName: "",

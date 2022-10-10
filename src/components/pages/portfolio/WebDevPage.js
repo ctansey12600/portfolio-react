@@ -1,4 +1,4 @@
-//Needs Styling
+//CONTAINS WEBSITE CONTEXT
 import React, { useContext } from "react";
 import styled from "styled-components";
 import WebsiteCard from "./WebsiteCard";
@@ -35,17 +35,17 @@ function WebDevPage() {
 
   if (!webData) return <h2 className="display-text">Loading...</h2>;
 
-  const renderWeb = webData.map((websiteID) => {
-    if (websiteID.id % 2 === 0) {
+  const renderWeb = webData.map((value) => {
+    if (value.id % 2 === 0) {
       return (
-        <Even key={websiteID.id}>
-          <WebsiteCard websiteID={websiteID} />
+        <Even key={value.id}>
+          <WebsiteCard value={value} />
         </Even>
       );
     } else {
       return (
-        <Odd key={websiteID.id}>
-          <WebsiteCard websiteID={websiteID} />
+        <Odd key={value.id}>
+          <WebsiteCard value={value} />
         </Odd>
       );
     }

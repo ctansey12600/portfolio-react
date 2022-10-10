@@ -6,9 +6,9 @@ function GraphicProvider({ children }) {
   const [graphicData, setGraphicData] = useState([]);
 
   useEffect(() => {
-    fetch("http://localhost:3000/graphics")
+    fetch("http://localhost:9292/portfolios/graphic")
       .then((r) => r.json())
-      .then((data) => setGraphicData(data));
+      .then((data) => setGraphicData(data.projects));
   }, []);
 
   return (

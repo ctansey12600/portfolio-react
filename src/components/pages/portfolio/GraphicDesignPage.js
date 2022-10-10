@@ -1,3 +1,4 @@
+//CONTAINS GRAPHIC CONTEXT
 import React, { useContext } from "react";
 import styled from "styled-components";
 import GraphicCard from "./GraphicCard";
@@ -15,9 +16,9 @@ function GraphicDesignPage() {
 
   if (!graphicData) return <h2 className="display-text">Loading...</h2>;
 
-  const renderGraphic = graphicData.map((graphicID) => (
-    <li key={graphicID.id}>
-      <GraphicCard graphicID={graphicID} />
+  const renderGraphic = graphicData.map((value) => (
+    <li key={value.id}>
+      <GraphicCard value={value} />
     </li>
   ));
 

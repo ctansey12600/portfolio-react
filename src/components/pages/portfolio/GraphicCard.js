@@ -104,20 +104,20 @@ const Card = styled.div`
   }
 `;
 
-function GraphicCard({ graphicID }) {
+function GraphicCard({ value }) {
   return (
     <Card>
-      <img src={graphicID.projectPreview} alt="preview of graphic" />
+      <img src={value.photos[0].thumbnail} alt={value.photos[0].alt} />
       <div>
-        <h2 className="regular-text">{graphicID.name}</h2>
+        <h2 className="regular-text">{value.name}</h2>
         <p>
-          Year Made: {graphicID.yearMade}
+          Year Made: {value.date_made}
           <br />
-          Programs Used: {graphicID.application}
+          Programs Used: {value.languages}
         </p>
       </div>
       <button>
-        <Link to={`/portfolio/graphics/${graphicID.id}`}>Click for More</Link>
+        <Link to={`/portfolio/graphics/${value.id}`}>Click for More</Link>
       </button>
     </Card>
   );

@@ -1,5 +1,4 @@
-//Needs Styling
-//Needs to shuffle through development photos
+//CONTAINS GRAPHIC CONTEXT
 import React, { useContext } from "react";
 import styled from "styled-components";
 import { useParams } from "react-router-dom";
@@ -54,7 +53,10 @@ function GProjectPage() {
       <InfoSection>
         <BasicInfo>
           <ProjectImg>
-            <img src={renderGraphicProject.src} alt="screenshot of graphic" />
+            <img
+              src={renderGraphicProject.photos[0].original}
+              alt={renderGraphicProject.photos[0].alt}
+            />
           </ProjectImg>
           <InfoCard>
             <MoreInfo>
@@ -64,9 +66,9 @@ function GProjectPage() {
               </MoreInfoTop>
               <MoreInfoBtm>
                 <h4>
-                  Year Made: {renderGraphicProject.yearMade}
+                  Year Made: {renderGraphicProject.date_made}
                   <br />
-                  Programs Used: {renderGraphicProject.application}
+                  Programs Used: {renderGraphicProject.languages}
                 </h4>
               </MoreInfoBtm>
             </MoreInfo>
@@ -81,7 +83,7 @@ function GProjectPage() {
         </Purpose>
         <Process>
           <h2>DOCUMENTING THE PROGRESS</h2>
-          <MyGallery photoData={renderGraphicProject.developmentPhotos} />
+          <MyGallery photoData={renderGraphicProject.photos} />
         </Process>
       </InfoSection>
     </GraphicProject>

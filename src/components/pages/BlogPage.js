@@ -49,22 +49,24 @@ function BlogPage() {
   const [blogData, setBlogData] = useState([]);
 
   useEffect(() => {
-    fetch("http://localhost:3000/blogs")
+    fetch("http://localhost:9292/portfolios/blog")
       .then((r) => r.json())
-      .then((data) => setBlogData(data));
+      .then((data) => setBlogData(data[0]["projects"]));
   }, []);
+
+  if (!blogData) return <h2 className="display-text">Loading...</h2>;
 
   const renderBlog = blogData.map((value) => {
     if (value.id % 2 === 0) {
       return (
         <Even key={value.id}>
-          <BlogCard data={value} />
+          <BlogCard value={value} />
         </Even>
       );
     } else {
       return (
         <Odd key={value.id}>
-          <BlogCard data={value} />
+          <BlogCard value={value} />
         </Odd>
       );
     }

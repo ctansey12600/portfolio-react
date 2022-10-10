@@ -6,9 +6,9 @@ function WebsiteProvider({ children }) {
   const [webData, setWebData] = useState([]);
 
   useEffect(() => {
-    fetch("http://localhost:3000/websites")
+    fetch("http://localhost:9292/portfolios/website")
       .then((r) => r.json())
-      .then((data) => setWebData(data));
+      .then((data) => setWebData(data.projects));
   }, []);
 
   return (
