@@ -11,8 +11,6 @@ const Form = styled.form`
   gap: 24px;
   width: 792px;
   height: 570px;
-  background: var(--green);
-  border-radius: 16px;
   flex: none;
   order: 0;
   flex-grow: 0;

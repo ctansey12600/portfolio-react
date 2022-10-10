@@ -8,7 +8,7 @@ function ScrollToTop(props) {
     window.scrollTo(0, 0);
   }, [location]);
 
-  return <>{props.children}</>;
+  return <div>{props.children}</div>;
 }
 
 export default ScrollToTop;

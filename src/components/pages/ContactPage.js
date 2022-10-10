@@ -1,33 +1,34 @@
 import React from "react";
 import styled from "styled-components";
 import QuestionForm from "./QuestionForm";
+import QuestionsAnswersSection from "./QuestionsAnswersSection";
 
 const Contact = styled.div`
   display: flex;
   width: 100%;
-  flex-direction: row;
-  justify-content: center;
+  flex-direction: column;
   align-items: center;
   padding: 45px;
+  gap: 50px;
   flex: none;
   align-self: stretch;
   flex-grow: 0;
 `;
 
-const Info = styled.section`
+const Top = styled.section`
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
+  justify-content: center;
   align-items: center;
   padding: 0px;
-  width: 496px;
-  height: 454px;
+  width: 1278px;
+  height: 570px;
   flex: none;
   order: 0;
   flex-grow: 0;
-  margin: 0px -75px;
 `;
 
-const InfoFrame = styled.div`
+const Info = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -40,6 +41,7 @@ const InfoFrame = styled.div`
   flex: none;
   order: 0;
   flex-grow: 0;
+  margin: 0px -10px;
   h2 {
     font-family: "Playfair Display";
     font-style: normal;
@@ -110,15 +112,17 @@ const InfoFrame = styled.div`
   }
 `;
 
-const ContactForm = styled.section`
+const ContactForm = styled.div`
   display: flex;
   flex-direction: column;
-  align-items: flex-start;
+  justify-content: center;
+  align-items: flex-end;
   padding: 0px;
   gap: 24px;
+  background: var(--green);
+  border-radius: 16px;
   width: 792px;
   height: 570px;
-  filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
   flex: none;
   order: 1;
   flex-grow: 0;
@@ -127,8 +131,8 @@ const ContactForm = styled.section`
 function ContactPage() {
   return (
     <Contact>
-      <Info>
-        <InfoFrame>
+      <Top>
+        <Info>
           <h2>CONTACT ME</h2>
           <div>
             <h3>Casey Tansey</h3>
@@ -138,11 +142,12 @@ function ContactPage() {
               <h4>ctansey12600@outlook.com</h4>
             </div>
           </div>
-        </InfoFrame>
-      </Info>
-      <ContactForm>
-        <QuestionForm />
-      </ContactForm>
+        </Info>
+        <ContactForm>
+          <QuestionForm />
+        </ContactForm>
+      </Top>
+      <QuestionsAnswersSection />
     </Contact>
   );
 }
