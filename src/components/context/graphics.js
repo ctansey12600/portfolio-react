@@ -8,7 +8,7 @@ function GraphicProvider({ children }) {
   useEffect(() => {
     fetch("http://localhost:9292/portfolios/graphic")
       .then((r) => r.json())
-      .then((data) => setGraphicData(data[0]["projects"]));
+      .then((data) => setGraphicData(data.projects));
   }, []);
 
   return (

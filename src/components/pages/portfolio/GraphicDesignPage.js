@@ -16,8 +16,6 @@ function GraphicDesignPage() {
 
   if (!graphicData) return <h2 className="display-text">Loading...</h2>;
 
-  console.log("Graphic Design Page:", graphicData);
-
   const renderGraphic = graphicData.map((value) => (
     <li key={value.id}>
       <GraphicCard value={value} />
