@@ -1,8 +1,7 @@
 //CONTAINS WEBSITE CONTEXT
-import React, { useContext } from "react";
+import React from "react";
 import styled from "styled-components";
 import WebsiteCard from "./WebsiteCard";
-import { WebsiteContext } from "../../context/websites";
 
 const Websites = styled.section`
   display: flex;
@@ -30,12 +29,8 @@ const Odd = styled.li`
   color: ${(props) => props.theme.primary};
 `;
 
-function WebDevPage() {
-  const webData = useContext(WebsiteContext);
-
-  if (!webData) return <h2 className="display-text">Loading...</h2>;
-
-  const renderWeb = webData.map((value) => {
+function WebDevPage({ webData }) {
+  const renderWeb = webData.projects.map((value) => {
     if (value.id % 2 === 0) {
       return (
         <Even key={value.id}>

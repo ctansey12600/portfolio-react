@@ -1,8 +1,7 @@
 //CONTAINS WEBSITE CONTEXT
-import React, { useContext } from "react";
+import React from "react";
 import styled from "styled-components";
 import { useParams } from "react-router-dom";
-import { WebsiteContext } from "../../context/websites";
 import {
   HeaderSection,
   InfoSection,
@@ -30,16 +29,13 @@ const WebsiteProject = styled.div`
   flex-grow: 0;
 `;
 
-function WProjectPage() {
-  const webData = useContext(WebsiteContext);
+function WProjectPage({ webData }) {
   const { id } = useParams();
   const numId = parseInt(id);
 
-  if (!webData) return <h2 className="display-text">Loading...</h2>;
-
-  const renderWebProject = webData.find((element) => element.id === numId);
-
-  if (!renderWebProject) return <h2 className="display-text">Loading...</h2>;
+  const renderWebProject = webData.projects.find(
+    (element) => element.id === numId
+  );
 
   return (
     <WebsiteProject>

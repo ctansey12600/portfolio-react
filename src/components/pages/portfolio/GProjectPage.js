@@ -1,8 +1,7 @@
 //CONTAINS GRAPHIC CONTEXT
-import React, { useContext } from "react";
+import React from "react";
 import styled from "styled-components";
 import { useParams } from "react-router-dom";
-import { GraphicContext } from "../../context/graphics";
 import {
   HeaderSection,
   InfoSection,
@@ -30,19 +29,13 @@ const GraphicProject = styled.div`
   flex-grow: 0;
 `;
 
-function GProjectPage() {
-  const graphicData = useContext(GraphicContext);
+function GProjectPage({ graphicData }) {
   const { id } = useParams();
   const numId = parseInt(id);
 
-  if (!graphicData) return <h2 className="display-text">Loading...</h2>;
-
-  const renderGraphicProject = graphicData.find(
+  const renderGraphicProject = graphicData.projects.find(
     (element) => element.id === numId
   );
-
-  if (!renderGraphicProject)
-    return <h2 className="display-text">Loading...</h2>;
 
   return (
     <GraphicProject>

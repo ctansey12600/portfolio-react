@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import styled from "styled-components";
+import QuestionCard from "./QuestionCard";
 
 const Btm = styled.section`
   display: flex;
@@ -218,15 +219,19 @@ const RegReply = styled.h4`
 `;
 
 function QuestionsAnswersSection() {
-  const [QuestionData, setQuestionData] = useState([]);
+  const [questionsData, setQuestionsData] = useState([]);
 
   useEffect(() => {
     fetch("http://localhost:9292/questions")
       .then((r) => r.json())
-      .then((data) => setQuestionData(data));
+      .then((data) => setQuestionsData(data));
   }, []);
 
-  console.log(QuestionData);
+  if (!questionsData) return <h2 className="display-text">Loading...</h2>;
+
+  const renderQuestions = questionsData.map((question) => {
+    return <QuestionCard />;
+  });
 
   return (
     <Btm>
@@ -235,7 +240,7 @@ function QuestionsAnswersSection() {
         <QuestionAnswer>
           <Question>
             <div>
-              <DisplayQuestion>Casey: </DisplayQuestion>
+              <DisplayQuestion></DisplayQuestion>
               <RegQuestion>
                 What was the inspiration behide the graphic design project that
                 features a movie poster for the movie Level 16?

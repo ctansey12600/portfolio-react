@@ -1,5 +1,5 @@
 //Needs Styling
-import React, { useState, useEffect } from "react";
+import React from "react";
 import styled from "styled-components";
 import BlogCard from "./BlogCard";
 
@@ -45,18 +45,8 @@ const Odd = styled.li`
   color: ${(props) => props.theme.primary};
 `;
 
-function BlogPage() {
-  const [blogData, setBlogData] = useState([]);
-
-  useEffect(() => {
-    fetch("http://localhost:9292/portfolios/blog")
-      .then((r) => r.json())
-      .then((data) => setBlogData(data[0]["projects"]));
-  }, []);
-
-  if (!blogData) return <h2 className="display-text">Loading...</h2>;
-
-  const renderBlog = blogData.map((value) => {
+function BlogPage({ blogData }) {
+  const renderBlog = blogData.projects.map((value) => {
     if (value.id % 2 === 0) {
       return (
         <Even key={value.id}>

@@ -5,8 +5,9 @@ import PortfolioShow from "./PortfolioShow";
 import WProjectPage from "./WProjectPage";
 import GProjectPage from "./GProjectPage";
 
-function PortfolioPage() {
+function PortfolioPage({ webData, graphicData }) {
   const match = useRouteMatch();
+
   return (
     <>
       <Switch>
@@ -14,13 +15,17 @@ function PortfolioPage() {
           <PortfolioSelection />
         </Route>
         <Route path="/portfolio/websites/:id">
-          <WProjectPage />
+          <WProjectPage webData={webData} />
         </Route>
         <Route path="/portfolio/graphics/:id">
-          <GProjectPage />
+          <GProjectPage graphicData={graphicData} />
         </Route>
         <Route path="/portfolio/:id">
-          <PortfolioShow match={match} />
+          <PortfolioShow
+            graphicData={graphicData}
+            webData={webData}
+            match={match}
+          />
         </Route>
       </Switch>
     </>

@@ -1,7 +1,5 @@
 import React, { useState } from "react";
 import styled, { ThemeProvider, createGlobalStyle } from "styled-components";
-import { WebsiteProvider } from "./components/context/websites";
-import { GraphicProvider } from "./components/context/graphics";
 import Header from "./components/Header";
 import PageRouting from "./components/PageRouting";
 import Footer from "./components/Footer";
@@ -106,10 +104,8 @@ function App() {
       <GlobalStyle />
       <Container>
         <Header isDarkMode={isDarkMode} onToggleDarkMode={onToggleDarkMode} />
-        <GraphicProvider>
-          <WebsiteProvider>
-            <main>
-              {/* <form onSubmit={onFormSubmit}>
+        <main>
+          {/* <form onSubmit={onFormSubmit}>
                 <input
                   name="inputValue"
                   type="text"
@@ -119,10 +115,8 @@ function App() {
                 <button type="submit">Click Me!</button>
                 <p>{isCounterValue}</p>
               </form> */}
-              <PageRouting />
-            </main>
-          </WebsiteProvider>
-        </GraphicProvider>
+          <PageRouting />
+        </main>
         <Footer />
       </Container>
     </ThemeProvider>
