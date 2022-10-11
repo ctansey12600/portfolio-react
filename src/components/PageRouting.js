@@ -6,8 +6,8 @@ import HomePage from "./pages/HomePage";
 import AboutPage from "./pages/AboutPage";
 import PortfolioPage from "./pages/portfolio/PortfolioPage";
 import ResumePage from "./pages/ResumePage";
-import BlogPage from "./pages/BlogPage";
-import ContactPage from "./pages/ContactPage";
+import BlogPage from "./pages/blog/BlogPage";
+import ContactPage from "./pages/contact/ContactPage";
 
 function PageRouting() {
   const [portfolioData, setPortfolioData] = useState([]);
