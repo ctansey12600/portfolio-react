@@ -99,6 +99,7 @@ const DropDown = styled.form`
       flex-direction: row;
       justify-content: space-between;
       align-items: center;
+      border-style: none;
       padding: 0px 16px;
       gap: 8px;
       background: ${(props) => props.theme.color};
@@ -122,7 +123,7 @@ const DropDown = styled.form`
   }
 `;
 
-const SubmitButton = styled.button`
+const SubmitInput = styled.input`
   display: flex;
   flex-direction: row;
   justify-content: center;
@@ -248,7 +249,7 @@ function QuestionsAnswersSection() {
                   <option value="delete">Delete</option>
                 </select>
               </div>
-              <SubmitButton type="submit">Submit</SubmitButton>
+              <SubmitInput type="submit" value="Submit"></SubmitInput>
             </DropDown>
           </Question>
           <Reply>
