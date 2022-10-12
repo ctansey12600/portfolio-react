@@ -267,6 +267,7 @@ function QuestionForm({ handleAddQuestion }) {
           <input
             type="text"
             name="firstName"
+            autoComplete="off"
             onChange={handleChange}
             value={formData.firstName}
             placeholder="First Name"
@@ -277,6 +278,7 @@ function QuestionForm({ handleAddQuestion }) {
           <input
             type="text"
             name="lastName"
+            autoComplete="off"
             onChange={handleChange}
             value={formData.lastName}
             placeholder="Last Name"
@@ -288,6 +290,7 @@ function QuestionForm({ handleAddQuestion }) {
         <input
           type="text"
           name="email"
+          autoComplete="off"
           onChange={handleChange}
           value={formData.email}
           placeholder="Email"
@@ -298,6 +301,7 @@ function QuestionForm({ handleAddQuestion }) {
         <input
           type="textarea"
           name="question"
+          autoComplete="off"
           onChange={handleChange}
           value={formData.question}
           placeholder="Ask away..."

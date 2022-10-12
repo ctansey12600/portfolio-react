@@ -147,6 +147,10 @@ function QuestionCard({
     value: "pleaseSelect",
   });
 
+  const user = questionData.user.first_name;
+
+  const capUserName = user.charAt(0).toUpperCase() + user.slice(1);
+
   function handleChange(event) {
     setSelectedValue({ value: event.target.value });
   }
@@ -160,7 +164,11 @@ function QuestionCard({
       })
         .then((r) => r.json())
         .then((deletedQuestion) => handleDeleteQuestion(deletedQuestion));
+    } else if (selectedValue.value === "edit") {
+      setIsEditing((isEditing) => !isEditing);
     }
+
+    setSelectedValue({ value: "pleaseSelect" });
   }
 
   function handleUpdateQuestion(updatedQuestion) {
@@ -171,30 +179,28 @@ function QuestionCard({
   return (
     <QuestionAnswer>
       <Question>
-        <div>
-          <DisplayQuestion>
-            {questionData.user.first_name} asked:
-          </DisplayQuestion>
-          {isEditing ? (
-            <EditQuestion
-              id={questionData.id}
-              question={questionData.question}
-              onUpdateQuestion={handleUpdateQuestion}
-            />
-          ) : (
-            <RegQuestion>{questionData.question}</RegQuestion>
-          )}
-        </div>
-        <DropDown onSubmit={handleSubmit} value={selectedValue.value}>
+        {isEditing ? (
+          <EditQuestion
+            id={questionData.id}
+            question={questionData.question}
+            onUpdateQuestion={handleUpdateQuestion}
+          />
+        ) : (
           <div>
-            <select value={selectedValue.value} onChange={handleChange}>
-              <option value="pleaseSelect">Please select</option>
-              <option value="edit">Edit</option>
-              <option value="delete">Delete</option>
-            </select>
+            <DisplayQuestion>{capUserName} asked:</DisplayQuestion>
+            <RegQuestion>{questionData.question}</RegQuestion>
+            <DropDown onSubmit={handleSubmit} value={selectedValue.value}>
+              <div>
+                <select value={selectedValue.value} onChange={handleChange}>
+                  <option value="pleaseSelect">Please select</option>
+                  <option value="edit">Edit</option>
+                  <option value="delete">Delete</option>
+                </select>
+              </div>
+              <SubmitInput type="submit" value="Submit"></SubmitInput>
+            </DropDown>
           </div>
-          <SubmitInput type="submit" value="Submit"></SubmitInput>
-        </DropDown>
+        )}
       </Question>
       {questionData.answer ? (
         <AnswerToQuestion answerData={questionData.answer} />
