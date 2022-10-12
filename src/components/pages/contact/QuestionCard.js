@@ -1,6 +1,7 @@
-import React from "react";
+import React, { useState } from "react";
 import styled from "styled-components";
 import AnswerToQuestion from "./AnswerToQuestion";
+import EditQuestion from "./EditQuestion";
 
 const QuestionAnswer = styled.div`
   display: flex;
@@ -136,7 +137,37 @@ const RegQuestion = styled.h4`
   flex-grow: 0;
 `;
 
-function QuestionCard({ questionData }) {
+function QuestionCard({
+  questionData,
+  handleDeleteQuestion,
+  onUpdateQuestion,
+}) {
+  const [isEditing, setIsEditing] = useState(false);
+  const [selectedValue, setSelectedValue] = useState({
+    value: "pleaseSelect",
+  });
+
+  function handleChange(event) {
+    setSelectedValue({ value: event.target.value });
+  }
+
+  function handleSubmit(event) {
+    event.preventDefault();
+
+    if (selectedValue.value === "delete") {
+      fetch(`http://localhost:9292/questions/${questionData.id}`, {
+        method: "DELETE",
+      })
+        .then((r) => r.json())
+        .then((deletedQuestion) => handleDeleteQuestion(deletedQuestion));
+    }
+  }
+
+  function handleUpdateQuestion(updatedQuestion) {
+    setIsEditing(false);
+    onUpdateQuestion(updatedQuestion);
+  }
+
   return (
     <QuestionAnswer>
       <Question>
@@ -144,11 +175,19 @@ function QuestionCard({ questionData }) {
           <DisplayQuestion>
             {questionData.user.first_name} asked:
           </DisplayQuestion>
-          <RegQuestion>{questionData.question}</RegQuestion>
+          {isEditing ? (
+            <EditQuestion
+              id={questionData.id}
+              question={questionData.question}
+              onUpdateQuestion={handleUpdateQuestion}
+            />
+          ) : (
+            <RegQuestion>{questionData.question}</RegQuestion>
+          )}
         </div>
-        <DropDown>
+        <DropDown onSubmit={handleSubmit} value={selectedValue.value}>
           <div>
-            <select name="edit">
+            <select value={selectedValue.value} onChange={handleChange}>
               <option value="pleaseSelect">Please select</option>
               <option value="edit">Edit</option>
               <option value="delete">Delete</option>

@@ -214,7 +214,7 @@ const SubmitButton = styled.button`
   }
 `;
 
-function QuestionForm() {
+function QuestionForm({ handleAddQuestion }) {
   const [formData, setFormData] = useState({
     firstName: "",
     lastName: "",
@@ -234,6 +234,7 @@ function QuestionForm() {
 
   function handleSubmit(event) {
     event.preventDefault();
+
     fetch("http://localhost:9292/questions", {
       method: "POST",
       headers: {
@@ -245,7 +246,11 @@ function QuestionForm() {
         email: formData.email,
         question: formData.question,
       }),
-    });
+    })
+      .then((r) => r.json())
+      .then((newQuestion) => {
+        handleAddQuestion(newQuestion);
+      });
     setFormData({
       firstName: "",
       lastName: "",

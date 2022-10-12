@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import styled from "styled-components";
 import QuestionForm from "./QuestionForm";
 import QuestionsAnswersSection from "./QuestionsAnswersSection";
@@ -129,6 +129,38 @@ const ContactForm = styled.div`
 `;
 
 function ContactPage() {
+  const [questionsData, setQuestionsData] = useState([]);
+
+  useEffect(() => {
+    fetch("http://localhost:9292/questions")
+      .then((r) => r.json())
+      .then((data) => setQuestionsData(data));
+  }, []);
+
+  if (!questionsData) return <h2 className="display-text">Loading...</h2>;
+
+  function handleAddQuestion(newQuestion) {
+    setQuestionsData([...questionsData, newQuestion]);
+  }
+
+  function handleDeleteQuestion(deletedQuestion) {
+    const updatedQuestions = questionsData.filter(
+      (question) => question.id !== deletedQuestion.id
+    );
+    setQuestionsData(updatedQuestions);
+  }
+
+  function handleUpdateQuestion(updatedQuestion) {
+    const updatedQuestions = questionsData.map((question) => {
+      if (question.id === updatedQuestion.id) {
+        return updatedQuestion;
+      } else {
+        return question;
+      }
+    });
+    setQuestionsData(updatedQuestions);
+  }
+
   return (
     <Contact>
       <Top>
@@ -144,10 +176,17 @@ function ContactPage() {
           </div>
         </Info>
         <ContactForm>
-          <QuestionForm />
+          <QuestionForm
+            handleAddQuestion={handleAddQuestion}
+            questionId={questionsData}
+          />
         </ContactForm>
       </Top>
-      <QuestionsAnswersSection />
+      <QuestionsAnswersSection
+        handleDeleteQuestion={handleDeleteQuestion}
+        questionsData={questionsData}
+        onUpdateQuestion={handleUpdateQuestion}
+      />
     </Contact>
   );
 }

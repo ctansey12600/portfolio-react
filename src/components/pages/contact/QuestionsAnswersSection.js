@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React from "react";
 import styled from "styled-components";
 import QuestionCard from "./QuestionCard";
 
@@ -9,7 +9,6 @@ const Btm = styled.section`
   padding: 10px 10px 10px 0px;
   gap: 45px;
   width: 1157px;
-  height: 1227px;
   flex: none;
   order: 1;
   flex-grow: 0;
@@ -33,7 +32,6 @@ const QuestionsAnswers = styled.div`
   padding: 40px 47px;
   gap: 30px;
   width: 1147px;
-  height: 1082px;
   background: ${(props) => props.theme.secondary};
   border-radius: 16px;
   flex: none;
@@ -42,19 +40,20 @@ const QuestionsAnswers = styled.div`
   flex-grow: 0;
 `;
 
-function QuestionsAnswersSection() {
-  const [questionsData, setQuestionsData] = useState([]);
-
-  useEffect(() => {
-    fetch("http://localhost:9292/questions")
-      .then((r) => r.json())
-      .then((data) => setQuestionsData(data));
-  }, []);
-
-  if (!questionsData) return <h2 className="display-text">Loading...</h2>;
-
+function QuestionsAnswersSection({
+  handleDeleteQuestion,
+  questionsData,
+  onUpdateQuestion,
+}) {
   const renderQuestions = questionsData.map((question) => {
-    return <QuestionCard key={question.id} questionData={question} />;
+    return (
+      <QuestionCard
+        key={question.id}
+        questionData={question}
+        handleDeleteQuestion={handleDeleteQuestion}
+        onUpdateQuestion={onUpdateQuestion}
+      />
+    );
   });
 
   return (
