@@ -67,40 +67,34 @@ const Card = styled.div`
       flex-grow: 0;
     }
   }
-  button {
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    align-items: center;
-    padding: 8px 32px;
-    gap: 8px;
-    width: 352px;
-    height: 56px;
-    background: ${(props) => props.theme.color};
-    border-radius: 8px;
-    border-style: none;
-    flex: none;
-    order: 2;
-    align-self: stretch;
-    flex-grow: 0;
-    z-index: 2;
-    a {
-      font-family: "Martel";
-      font-style: normal;
-      font-weight: 700;
-      font-size: 24px;
-      line-height: 32px;
-      color: ${(props) => props.theme.backgroundColor};
-      flex: none;
-      order: 0;
-      flex-grow: 0;
-    }
-    &:hover {
-      background: ${(props) => props.theme.backgroundColor};
-      a {
-        color: ${(props) => props.theme.color};
-      }
-    }
+`;
+
+const CardButton = styled.button`
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  padding: 8px 32px;
+  gap: 8px;
+  width: 352px;
+  height: 56px;
+  background: ${(props) => props.theme.color};
+  border-radius: 8px;
+  border-style: none;
+  flex: none;
+  order: 2;
+  align-self: stretch;
+  flex-grow: 0;
+  z-index: 2;
+  font-family: "Martel";
+  font-style: normal;
+  font-weight: 700;
+  font-size: 24px;
+  line-height: 32px;
+  color: ${(props) => props.theme.backgroundColor};
+  &:hover {
+    background: ${(props) => props.theme.backgroundColor};
+    color: ${(props) => props.theme.color};
   }
 `;
 
@@ -116,9 +110,9 @@ function GraphicCard({ value }) {
           Programs Used: {value.languages}
         </p>
       </div>
-      <button>
-        <Link to={`/portfolio/graphics/${value.id}`}>Click for More</Link>
-      </button>
+      <CardButton as={Link} to={`/portfolio/graphics/${value.id}`}>
+        Click for More
+      </CardButton>
     </Card>
   );
 }

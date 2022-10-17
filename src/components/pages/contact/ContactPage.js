@@ -176,10 +176,7 @@ function ContactPage() {
           </div>
         </Info>
         <ContactForm>
-          <QuestionForm
-            handleAddQuestion={handleAddQuestion}
-            questionId={questionsData}
-          />
+          <QuestionForm handleAddQuestion={handleAddQuestion} />
         </ContactForm>
       </Top>
       <QuestionsAnswersSection

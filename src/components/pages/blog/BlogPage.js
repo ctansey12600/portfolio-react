@@ -2,6 +2,7 @@
 import React from "react";
 import styled from "styled-components";
 import BlogCard from "./BlogCard";
+import ColorSwitch from "../../shared/ColorSwitch";
 
 const Blog = styled.section`
   display: flex;
@@ -35,31 +36,33 @@ const Blog = styled.section`
   }
 `;
 
-const Even = styled.li`
+const Even = styled.div`
   background: ${(props) => props.theme.primary};
   color: ${(props) => props.theme.secondary};
 `;
 
-const Odd = styled.li`
+const Odd = styled.div`
   background: ${(props) => props.theme.secondary};
   color: ${(props) => props.theme.primary};
 `;
 
 function BlogPage({ blogData }) {
-  const renderBlog = blogData.projects.map((value) => {
-    if (value.id % 2 === 0) {
-      return (
-        <Even key={value.id}>
-          <BlogCard value={value} />
-        </Even>
-      );
-    } else {
-      return (
-        <Odd key={value.id}>
-          <BlogCard value={value} />
-        </Odd>
-      );
-    }
+  const renderBlog = blogData.projects.map((value, index) => {
+    let currentColor = ColorSwitch(index);
+
+    return (
+      <li key={value.id}>
+        {currentColor ? (
+          <Even>
+            <BlogCard value={value} />
+          </Even>
+        ) : (
+          <Odd>
+            <BlogCard value={value} />
+          </Odd>
+        )}
+      </li>
+    );
   });
 
   return (

@@ -2,6 +2,7 @@
 import React from "react";
 import styled from "styled-components";
 import WebsiteCard from "./WebsiteCard";
+import ColorSwitch from "../../shared/ColorSwitch";
 
 const Websites = styled.section`
   display: flex;
@@ -19,31 +20,33 @@ const Websites = styled.section`
   }
 `;
 
-const Even = styled.li`
+const Even = styled.div`
   background: ${(props) => props.theme.primary};
   color: ${(props) => props.theme.secondary};
 `;
 
-const Odd = styled.li`
+const Odd = styled.div`
   background: ${(props) => props.theme.secondary};
   color: ${(props) => props.theme.primary};
 `;
 
 function WebDevPage({ webData }) {
-  const renderWeb = webData.projects.map((value) => {
-    if (value.id % 2 === 0) {
-      return (
-        <Even key={value.id}>
-          <WebsiteCard value={value} />
-        </Even>
-      );
-    } else {
-      return (
-        <Odd key={value.id}>
-          <WebsiteCard value={value} />
-        </Odd>
-      );
-    }
+  const renderWeb = webData.projects.map((value, index) => {
+    let currentColor = ColorSwitch(index);
+
+    return (
+      <li key={value.id}>
+        {currentColor ? (
+          <Even>
+            <WebsiteCard value={value} />
+          </Even>
+        ) : (
+          <Odd>
+            <WebsiteCard value={value} />
+          </Odd>
+        )}
+      </li>
+    );
   });
 
   return (
