@@ -2,7 +2,6 @@
 import React from "react";
 import styled from "styled-components";
 import { Link } from "react-router-dom";
-import { footerRoutes } from "../assets/data";
 
 const Wrapper = styled.div`
   display: flex;
@@ -50,7 +49,52 @@ const Body = styled.h4`
 `;
 
 function FooterNav() {
-  const footerNavCollection = footerRoutes.map((titleRoute) => (
+  const routes = [
+    {
+      path: "/",
+      name: "Casey Tansey",
+      pages: [
+        { path: "/about", name: "About Me" },
+        { path: "/resume", name: "Resume" },
+        { path: "/blog", name: "Blog" },
+      ],
+    },
+    {
+      path: "/portfolio/websites",
+      name: "Website Portfolio",
+      pages: [
+        {
+          path: "/portfolio/websites/",
+          name: "Most Recent",
+        },
+        {
+          path: "/portfolio/websites/",
+          name: "My Favorite",
+        },
+        { path: "/portfolio/websites", name: "All" },
+      ],
+    },
+    {
+      path: "/portfolio/graphics",
+      name: "Graphic Portfolio",
+      pages: [
+        {
+          path: "/portfolio/graphics/",
+          name: "Most Recent",
+        },
+        {
+          path: "/portfolio/graphics/",
+          name: "My Favorite",
+        },
+        {
+          path: "/portfolio/graphics",
+          name: "All",
+        },
+      ],
+    },
+  ];
+
+  const footerNavCollection = routes.map((titleRoute) => (
     <List key={titleRoute.name}>
       <Title as={Link} to={titleRoute.path}>
         {titleRoute.name}

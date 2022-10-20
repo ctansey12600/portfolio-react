@@ -129,36 +129,35 @@ const ContactForm = styled.div`
 `;
 
 function ContactPage() {
-  const [questionsData, setQuestionsData] = useState([]);
+  // Sets state of questions
+  const [questions, setQuestions] = useState([]);
 
   useEffect(() => {
     fetch("http://localhost:9292/questions")
       .then((r) => r.json())
-      .then((data) => setQuestionsData(data));
+      .then((data) => setQuestions(data));
   }, []);
 
-  if (!questionsData) return <h2 className="display-text">Loading...</h2>;
-
   function handleAddQuestion(newQuestion) {
-    setQuestionsData([...questionsData, newQuestion]);
+    setQuestions([...questions, newQuestion]);
   }
 
   function handleDeleteQuestion(deletedQuestion) {
-    const updatedQuestions = questionsData.filter(
+    const updatedQuestions = questions.filter(
       (question) => question.id !== deletedQuestion.id
     );
-    setQuestionsData(updatedQuestions);
+    setQuestions(updatedQuestions);
   }
 
   function handleUpdateQuestion(updatedQuestion) {
-    const updatedQuestions = questionsData.map((question) => {
+    const updatedQuestions = questions.map((question) => {
       if (question.id === updatedQuestion.id) {
         return updatedQuestion;
       } else {
         return question;
       }
     });
-    setQuestionsData(updatedQuestions);
+    setQuestions(updatedQuestions);
   }
 
   return (
@@ -176,14 +175,16 @@ function ContactPage() {
           </div>
         </Info>
         <ContactForm>
-          <QuestionForm handleAddQuestion={handleAddQuestion} />
+          <QuestionForm onAddQuestion={handleAddQuestion} />
         </ContactForm>
       </Top>
-      <QuestionsAnswersSection
-        handleDeleteQuestion={handleDeleteQuestion}
-        questionsData={questionsData}
-        onUpdateQuestion={handleUpdateQuestion}
-      />
+      {questions.length <= 0 ? null : (
+        <QuestionsAnswersSection
+          onDeleteQuestion={handleDeleteQuestion}
+          questions={questions}
+          onUpdateQuestion={handleUpdateQuestion}
+        />
+      )}
     </Contact>
   );
 }

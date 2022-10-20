@@ -46,8 +46,8 @@ const Odd = styled.div`
   color: ${(props) => props.theme.primary};
 `;
 
-function BlogPage({ blogData }) {
-  const renderBlog = blogData.projects.map((value, index) => {
+function BlogPage({ blogs }) {
+  const renderBlog = blogs.map((value, index) => {
     let currentColor = ColorSwitch(index);
 
     return (

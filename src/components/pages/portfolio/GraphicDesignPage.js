@@ -10,8 +10,8 @@ const GraphicSection = styled.ul`
   grid-auto-rows: minmax(100px, auto);
 `;
 
-function GraphicDesignPage({ graphicData }) {
-  const renderGraphic = graphicData.projects.map((value) => (
+function GraphicDesignPage({ graphics }) {
+  const renderGraphic = graphics.map((value) => (
     <li key={value.id}>
       <GraphicCard value={value} />
     </li>

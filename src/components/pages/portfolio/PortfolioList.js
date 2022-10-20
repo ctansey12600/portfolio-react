@@ -1,7 +1,6 @@
 import React from "react";
 import styled from "styled-components";
 import { NavLink } from "react-router-dom";
-import { routes } from "../../../assets/data";
 
 const PortfolioNav = styled.div`
   display: flex;
@@ -47,7 +46,20 @@ const Button = styled.button`
 `;
 
 function PortfolioList({ match }) {
-  const portfolioCollection = routes[2].pages.map((route) => (
+  const routes = [
+    {
+      path: "/websites",
+      name: "Website Design",
+      shortName: "Websites",
+    },
+    {
+      path: "/graphics",
+      name: "Graphic Design",
+      shortName: "Graphics",
+    },
+  ];
+
+  const portfolioCollection = routes.map((route) => (
     <Button as={NavLink} key={route.path} to={`${match.url}${route.path}`}>
       {route.shortName}
     </Button>

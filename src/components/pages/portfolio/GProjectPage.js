@@ -29,13 +29,10 @@ const GraphicProject = styled.div`
   flex-grow: 0;
 `;
 
-function GProjectPage({ graphicData }) {
+function GProjectPage({ graphics }) {
   const { id } = useParams();
   const numId = parseInt(id);
-
-  const renderGraphicProject = graphicData.projects.find(
-    (element) => element.id === numId
-  );
+  const renderGraphicProject = graphics.find((element) => element.id === numId);
 
   return (
     <GraphicProject>

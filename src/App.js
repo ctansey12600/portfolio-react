@@ -4,6 +4,8 @@ import Header from "./components/Header";
 import PageRouting from "./components/PageRouting";
 import Footer from "./components/Footer";
 
+//Creates global style to retain theme colors throughout app
+
 const GlobalStyle = createGlobalStyle`
 :root {
   --light-orange: #FB9C4C;
@@ -72,51 +74,28 @@ const darkTheme = {
 };
 
 function App() {
+  // Sets state of color theme w/ initial state of F = lightTheme, T = darkTheme
   const [isDarkMode, setIsDarkMode] = useState(false);
-  //Created two different state values, so that they can update independently
-  // const [isInputValue, setIsInputValue] = useState("");
-  // const [isCounterValue, setIsCounterValue] = useState(0);
 
+  // Changes state of Theme mode true -> false; false -> true
   function onToggleDarkMode() {
     setIsDarkMode((isDarkMode) => !isDarkMode);
   }
 
-  // function onFormSubmit(e) {
-  //   e.preventDefault();
-  //   //collect the length of the input value as a variable
-  //   const valueLength = isInputValue.length;
-  //   //Update the value of the counter by the value of the length of the input value
-  //   //Passing the value as a prop so that the internal state is update and the DOM reflects such
-  //   setIsCounterValue((isCounterValue) => isCounterValue + valueLength);
-  //   //The Input value is set back to empty so that a new value can be added
-  //   setIsInputValue("");
-  // }
-
-  // function handleOnChange(event) {
-  //   //Changed this function so that only the input value is changed by the user typing, and that the counter
-  //   //will not be updated unless there is a submit only
-  //   const value = event.target.value;
-  //   setIsInputValue(value);
-  // }
-
+  // Renders App Components of Header, PageRouting, Footer
   return (
+    // Provides color theme, if state is true -> darkTheme; false -> lightTheme
     <ThemeProvider theme={isDarkMode ? darkTheme : lightTheme}>
+      {/* Provides global style to components below */}
       <GlobalStyle />
       <Container>
+        {/* Renders Header Component */}
         <Header isDarkMode={isDarkMode} onToggleDarkMode={onToggleDarkMode} />
         <main>
-          {/* <form onSubmit={onFormSubmit}>
-                <input
-                  name="inputValue"
-                  type="text"
-                  value={isInputValue}
-                  onChange={handleOnChange}
-                ></input>
-                <button type="submit">Click Me!</button>
-                <p>{isCounterValue}</p>
-              </form> */}
+          {/* Renders PageRouting Component */}
           <PageRouting />
         </main>
+        {/* Renders Footer Component */}
         <Footer />
       </Container>
     </ThemeProvider>
@@ -124,3 +103,38 @@ function App() {
 }
 
 export default App;
+
+// Live Coding Test from Phase 2 Project:
+
+//Created two different state values, so that they can update independently
+// const [isInputValue, setIsInputValue] = useState("");
+// const [isCounterValue, setIsCounterValue] = useState(0);
+
+// function onFormSubmit(e) {
+//   e.preventDefault();
+//   //collect the length of the input value as a variable
+//   const valueLength = isInputValue.length;
+//   //Update the value of the counter by the value of the length of the input value
+//   //Passing the value as a prop so that the internal state is update and the DOM reflects such
+//   setIsCounterValue((isCounterValue) => isCounterValue + valueLength);
+//   //The Input value is set back to empty so that a new value can be added
+//   setIsInputValue("");
+// }
+
+// function handleOnChange(event) {
+//   //Changed this function so that only the input value is changed by the user typing, and that the counter
+//   //will not be updated unless there is a submit only
+//   const value = event.target.value;
+//   setIsInputValue(value);
+// }
+
+/* <form onSubmit={onFormSubmit}>
+        <input
+          name="inputValue"
+          type="text"
+          value={isInputValue}
+          onChange={handleOnChange}
+        ></input>
+        <button type="submit">Click Me!</button>
+        <p>{isCounterValue}</p>
+  </form> */

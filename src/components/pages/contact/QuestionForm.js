@@ -214,7 +214,7 @@ const SubmitButton = styled.button`
   }
 `;
 
-function QuestionForm({ handleAddQuestion }) {
+function QuestionForm({ onAddQuestion }) {
   const [formData, setFormData] = useState({
     firstName: "",
     lastName: "",
@@ -249,7 +249,7 @@ function QuestionForm({ handleAddQuestion }) {
     })
       .then((r) => r.json())
       .then((newQuestion) => {
-        handleAddQuestion(newQuestion);
+        onAddQuestion(newQuestion);
       });
     setFormData({
       firstName: "",

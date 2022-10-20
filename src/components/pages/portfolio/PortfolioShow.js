@@ -16,16 +16,16 @@ const Portfolio = styled.div`
   align-self: stretch;
   flex-grow: 0;
 `;
-function PortfolioShow({ match, webData, graphicData }) {
+function PortfolioShow({ match, websites, graphics }) {
   return (
     <Portfolio>
       <PortfolioList match={match} />
       <Switch>
         <Route path="/portfolio/websites">
-          <WebDevPage webData={webData} />
+          <WebDevPage websites={websites} />
         </Route>
         <Route path="/portfolio/graphics">
-          <GraphicDesignPage graphicData={graphicData} />
+          <GraphicDesignPage graphics={graphics} />
         </Route>
       </Switch>
     </Portfolio>

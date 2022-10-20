@@ -29,13 +29,11 @@ const WebsiteProject = styled.div`
   flex-grow: 0;
 `;
 
-function WProjectPage({ webData }) {
+function WProjectPage({ websites }) {
   const { id } = useParams();
   const numId = parseInt(id);
 
-  const renderWebProject = webData.projects.find(
-    (element) => element.id === numId
-  );
+  const renderWebProject = websites.find((element) => element.id === numId);
 
   return (
     <WebsiteProject>

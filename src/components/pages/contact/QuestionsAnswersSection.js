@@ -30,7 +30,7 @@ const QuestionsAnswers = styled.div`
   flex-direction: column;
   align-items: center;
   padding: 40px 47px;
-  gap: 30px;
+  gap: 100px;
   width: 1147px;
   background: ${(props) => props.theme.secondary};
   border-radius: 16px;
@@ -41,16 +41,19 @@ const QuestionsAnswers = styled.div`
 `;
 
 function QuestionsAnswersSection({
-  handleDeleteQuestion,
-  questionsData,
+  onDeleteQuestion,
+  questions,
   onUpdateQuestion,
 }) {
-  const renderQuestions = questionsData.map((question) => {
+  const renderQuestions = questions.map((question) => {
     return (
       <QuestionCard
         key={question.id}
-        questionData={question}
-        handleDeleteQuestion={handleDeleteQuestion}
+        id={question.id}
+        question={question.question}
+        answer={question.answer}
+        user={question.user.first_name}
+        onDeleteQuestion={onDeleteQuestion}
         onUpdateQuestion={onUpdateQuestion}
       />
     );

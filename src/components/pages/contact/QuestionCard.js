@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import styled from "styled-components";
-import AnswerToQuestion from "./AnswerToQuestion";
 import EditQuestion from "./EditQuestion";
 
 const QuestionAnswer = styled.div`
@@ -10,7 +9,6 @@ const QuestionAnswer = styled.div`
   padding: 0px;
   isolation: isolate;
   width: 1053px;
-  height: 332px;
   flex: none;
   order: 0;
   flex-grow: 0;
@@ -137,75 +135,139 @@ const RegQuestion = styled.h4`
   flex-grow: 0;
 `;
 
+const Reply = styled.div`
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 0px 10px;
+  gap: 10px;
+  width: 1003px;
+  height: 163px;
+  background: ${(props) => props.theme.infoBody};
+  border-radius: 16px;
+  flex: none;
+  order: 1;
+  flex-grow: 0;
+  z-index: 0;
+`;
+
+const DisplayReply = styled.h4`
+  font-family: "Playfair Display";
+  font-style: normal;
+  font-weight: 600;
+  font-size: 30px;
+  line-height: 38px;
+  color: ${(props) => props.theme.infoTitle};
+  flex: none;
+  order: 0;
+  align-self: stretch;
+  flex-grow: 0;
+`;
+
+const RegReply = styled.h4`
+  font-family: "Martel";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 24px;
+  line-height: 32px;
+  color: ${(props) => props.theme.infoTitle};
+  flex: none;
+  order: 0;
+  align-self: stretch;
+  flex-grow: 0;
+`;
+
 function QuestionCard({
-  questionData,
-  handleDeleteQuestion,
+  question,
+  answer,
+  id,
+  user,
+  onDeleteQuestion,
   onUpdateQuestion,
 }) {
+  const [dropdownValue, setDropdownValue] = useState("Please select");
   const [isEditing, setIsEditing] = useState(false);
-  const [selectedValue, setSelectedValue] = useState({
-    value: "pleaseSelect",
-  });
 
-  const user = questionData.user.first_name;
+  const questionUser = user.charAt(0).toUpperCase() + user.slice(1);
 
-  const capUserName = user.charAt(0).toUpperCase() + user.slice(1);
-
-  function handleChange(event) {
-    setSelectedValue({ value: event.target.value });
+  function handleDropdownChange(event) {
+    setDropdownValue(event.target.value);
   }
 
   function handleSubmit(event) {
     event.preventDefault();
-
-    if (selectedValue.value === "delete") {
-      fetch(`http://localhost:9292/questions/${questionData.id}`, {
+    if (dropdownValue === "Please select") {
+      return;
+    } else if (dropdownValue === "delete") {
+      fetch(`http://localhost:9292/questions/${id}`, {
         method: "DELETE",
       })
         .then((r) => r.json())
-        .then((deletedQuestion) => handleDeleteQuestion(deletedQuestion));
-    } else if (selectedValue.value === "edit") {
+        .then((deletedQuestion) => onDeleteQuestion(deletedQuestion));
+      setDropdownValue("Please select");
+    } else if (dropdownValue === "edit" || "answer") {
       setIsEditing((isEditing) => !isEditing);
+    } else {
+      setDropdownValue("Please select");
     }
+  }
 
-    setSelectedValue({ value: "pleaseSelect" });
+  function handleCancelEdit() {
+    setIsEditing((isEditing) => !isEditing);
+    setDropdownValue("Please select");
   }
 
   function handleUpdateQuestion(updatedQuestion) {
-    setIsEditing(false);
+    setIsEditing((isEditing) => !isEditing);
+    setDropdownValue("Please select");
     onUpdateQuestion(updatedQuestion);
   }
 
   return (
-    <QuestionAnswer>
-      <Question>
-        {isEditing ? (
-          <EditQuestion
-            id={questionData.id}
-            question={questionData.question}
-            onUpdateQuestion={handleUpdateQuestion}
-          />
-        ) : (
-          <div>
-            <DisplayQuestion>{capUserName} asked:</DisplayQuestion>
-            <RegQuestion>{questionData.question}</RegQuestion>
-            <DropDown onSubmit={handleSubmit} value={selectedValue.value}>
+    <>
+      {isEditing && dropdownValue === "edit" ? (
+        <EditQuestion
+          id={id}
+          question={question}
+          onUpdateQuestion={handleUpdateQuestion}
+          editType={dropdownValue}
+          onCancelEdit={handleCancelEdit}
+        />
+      ) : (
+        <QuestionAnswer>
+          <Question>
+            <DisplayQuestion>{questionUser} asked:</DisplayQuestion>
+            <RegQuestion>{question}</RegQuestion>
+            <DropDown onSubmit={handleSubmit}>
               <div>
-                <select value={selectedValue.value} onChange={handleChange}>
+                <select value={dropdownValue} onChange={handleDropdownChange}>
                   <option value="pleaseSelect">Please select</option>
                   <option value="edit">Edit</option>
                   <option value="delete">Delete</option>
+                  {answer ? null : <option value="answer">Answer</option>}
                 </select>
               </div>
               <SubmitInput type="submit" value="Submit"></SubmitInput>
             </DropDown>
-          </div>
-        )}
-      </Question>
-      {questionData.answer ? (
-        <AnswerToQuestion answerData={questionData.answer} />
-      ) : null}
-    </QuestionAnswer>
+          </Question>
+          {isEditing && dropdownValue === "answer" ? (
+            <EditQuestion
+              id={id}
+              question={question}
+              onUpdateQuestion={handleUpdateQuestion}
+              editType={dropdownValue}
+              onCancelEdit={handleCancelEdit}
+            />
+          ) : answer ? (
+            <Reply>
+              <DisplayReply>Answer: </DisplayReply>
+              <RegReply>{answer}</RegReply>
+            </Reply>
+          ) : null}
+        </QuestionAnswer>
+      )}
+    </>
   );
 }
 

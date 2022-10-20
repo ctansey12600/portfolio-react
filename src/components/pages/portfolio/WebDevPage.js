@@ -30,8 +30,8 @@ const Odd = styled.div`
   color: ${(props) => props.theme.primary};
 `;
 
-function WebDevPage({ webData }) {
-  const renderWeb = webData.projects.map((value, index) => {
+function WebDevPage({ websites }) {
+  const renderWeb = websites.map((value, index) => {
     let currentColor = ColorSwitch(index);
 
     return (
