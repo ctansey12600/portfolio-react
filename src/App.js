@@ -51,7 +51,6 @@ ul {
 `;
 
 const Container = styled.div`
-  width: 100%;
   min-height: 100vh;
 `;
 
@@ -91,10 +90,8 @@ function App() {
       <Container>
         {/* Renders Header Component */}
         <Header isDarkMode={isDarkMode} onToggleDarkMode={onToggleDarkMode} />
-        <main>
-          {/* Renders PageRouting Component */}
-          <PageRouting />
-        </main>
+        {/* Renders PageRouting Component */}
+        <PageRouting />
         {/* Renders Footer Component */}
         <Footer />
       </Container>

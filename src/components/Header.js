@@ -2,20 +2,6 @@ import React from "react";
 import { NavLink } from "react-router-dom";
 import { Button, Wrapper, Navigation } from "./shared/ProjectStyles";
 
-// pages: [
-//   {
-//     path: "/websites",
-//     name: "Website Design",
-//     shortName: "Websites",
-//     pages: [],
-//   },
-//   {
-//     path: "/graphics",
-//     name: "Graphic Design",
-//     shortName: "Graphics",
-//     pages: [],
-//   },
-// ],
 function Header({ isDarkMode, onToggleDarkMode }) {
   // Provides button value, if state is true -> Light; false -> Dark
   const buttonTextContent = isDarkMode ? "Light" : "Dark";
