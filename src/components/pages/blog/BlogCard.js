@@ -9,13 +9,14 @@ const Card = styled.div`
   align-items: center;
   padding: 10px;
   gap: 10px;
-  width: 75%;
   flex: none;
   order: 0;
   flex-grow: 0;
 `;
 
-const BlogImg = styled.div`
+const BlogImg = styled.img`
+  width: 250px;
+  height: 250px;
   flex: none;
   order: 0;
   flex-grow: 0;
@@ -120,9 +121,7 @@ const BlogLink = styled.a`
 function BlogCard({ value }) {
   return (
     <Card>
-      <BlogImg>
-        <img src={value.photos[0].thumbnail} alt={value.photos[0].alt} />
-      </BlogImg>
+      <BlogImg src={value.photos[0].thumbnail} alt={value.photos[0].alt} />
       <BlogInfo>
         <BlogInfoLeft>
           <h2>{value.name}</h2>

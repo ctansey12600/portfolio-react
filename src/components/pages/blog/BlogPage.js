@@ -29,6 +29,7 @@ const Blog = styled.section`
     display: flex;
     flex-direction: column;
     align-items: center;
+    width: 75%;
     padding: 0px;
     flex: none;
     order: 1;
