@@ -10,12 +10,19 @@ import BlogPage from "./pages/blog/BlogPage";
 import ContactPage from "./pages/contact/ContactPage";
 
 function PageRouting() {
+  const [questions, setQuestions] = useState([]);
   const [portfolioData, setPortfolioData] = useState({
     websites: [],
     graphics: [],
     blogs: [],
     loaded: false,
   });
+
+  useEffect(() => {
+    fetch("http://localhost:9292/questions")
+      .then((r) => r.json())
+      .then((data) => setQuestions(data));
+  }, []);
 
   useEffect(() => {
     fetch("http://localhost:9292/portfolios")
@@ -38,6 +45,28 @@ function PageRouting() {
       }
     });
     setPortfolioData(sortedData);
+  }
+
+  function handleAddQuestion(newQuestion) {
+    setQuestions([...questions, newQuestion]);
+  }
+
+  function handleDeleteQuestion(deletedQuestion) {
+    const updatedQuestions = questions.filter(
+      (question) => question.id !== deletedQuestion.id
+    );
+    setQuestions(updatedQuestions);
+  }
+
+  function handleUpdateQuestion(updatedQuestion) {
+    const updatedQuestions = questions.map((question) => {
+      if (question.id === updatedQuestion.id) {
+        return updatedQuestion;
+      } else {
+        return question;
+      }
+    });
+    setQuestions(updatedQuestions);
   }
 
   if (portfolioData.loaded) {
@@ -63,7 +92,12 @@ function PageRouting() {
             <BlogPage blogs={portfolioData.blogs} />
           </Route>
           <Route path="/contact">
-            <ContactPage />
+            <ContactPage
+              questions={questions}
+              onAddQuestion={handleAddQuestion}
+              onDeleteQuestion={handleDeleteQuestion}
+              onUpdateQuestion={handleUpdateQuestion}
+            />
           </Route>
           <Route path="*">
             <h1>404 not found</h1>
